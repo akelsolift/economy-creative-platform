@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///Users/andrekelso/Downloads/economy-creative-platform-v2_2.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economy RAC — Plataforma Creativa v2</title>
+<link href="./Economy RAC — Plataforma Creativa v2_files/css2" rel="stylesheet">
+<style>
+:root {
+  --red: #E8001E;
+  --red-dark: #B8001A;
+  --red-glow: rgba(232,0,30,0.18);
+  --black: #0E0E0E;
+  --surface: #181818;
+  --surface2: #222222;
+  --surface3: #2C2C2C;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(232,0,30,0.35);
+  --text: #F5F5F5;
+  --text-muted: rgba(255,255,255,0.45);
+  --text-dim: rgba(255,255,255,0.22);
+  --green: #22C55E;
+  --amber: #F59E0B;
+  --blue: #3B82F6;
+  --r: 10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* ─── TOPBAR ─── */
+#topbar{
+  position:sticky;top:0;z-index:200;
+  background:var(--surface);
+  border-bottom:2px solid var(--red);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:60px;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-badge{
+  background:var(--red);color:#fff;
+  font-size:15px;font-weight:900;letter-spacing:-0.5px;
+  padding:6px 14px;border-radius:6px;
+}
+.brand-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);}
+.topbar-right{font-size:10px;font-weight:600;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;}
+
+/* ─── NAV ─── */
+#nav{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:stretch;
+  padding:0 32px;gap:2px;overflow-x:auto;
+}
+.nav-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--text-muted);
+  padding:14px 18px;border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+}
+.nav-btn:hover{color:var(--text);}
+.nav-btn.active{color:var(--text);border-bottom-color:var(--red);}
+
+/* ─── PANELS ─── */
+.panel{display:none;padding:36px 32px;max-width:1300px;margin:0 auto;}
+.panel.active{display:block;}
+
+/* ─── SECTION TITLES ─── */
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+.section-title{font-size:26px;font-weight:800;letter-spacing:-0.5px;line-height:1.2;}
+.section-sub{font-size:13px;color:var(--text-muted);margin-top:6px;font-weight:500;line-height:1.6;}
+.section-head{margin-bottom:28px;}
+
+/* ─── CARDS ─── */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:28px;}
+.card{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:22px;
+  transition:border-color .2s;
+}
+.card:hover{border-color:var(--border-hover);}
+.card-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.card-title{font-size:14px;font-weight:800;margin-bottom:8px;letter-spacing:-0.2px;}
+.card-body{font-size:12px;line-height:1.75;color:rgba(255,255,255,0.62);}
+.card-body ul{list-style:none;padding:0;}
+.card-body li{padding:3px 0 3px 14px;position:relative;}
+.card-body li::before{content:'—';position:absolute;left:0;color:var(--red);font-weight:700;}
+
+/* ─── PILLS ─── */
+.pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:10px;}
+.pill-red{background:rgba(232,0,30,.14);color:#FF3A52;border:1px solid rgba(232,0,30,.28);}
+.pill-green{background:rgba(34,197,94,.12);color:#4ADE80;border:1px solid rgba(34,197,94,.25);}
+.pill-amber{background:rgba(245,158,11,.12);color:#FCD34D;border:1px solid rgba(245,158,11,.25);}
+.pill-gray{background:rgba(255,255,255,.07);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.12);}
+.pill-blue{background:rgba(59,130,246,.12);color:#93C5FD;border:1px solid rgba(59,130,246,.25);}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:var(--border);margin:28px 0;}
+
+/* ─── MANDATE BOX ─── */
+.mandate{background:var(--red);border-radius:var(--r);padding:22px 26px;margin-bottom:28px;}
+.mandate-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px;}
+.mandate-text{font-size:16px;font-weight:800;line-height:1.45;letter-spacing:-0.2px;}
+
+/* ─── PILLAR CARDS ─── */
+.pillar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:28px;}
+.pillar-card{background:var(--surface2);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:var(--r);padding:20px;}
+.pillar-icon{font-size:22px;margin-bottom:10px;}
+.pillar-name{font-size:14px;font-weight:800;letter-spacing:-0.2px;margin-bottom:4px;}
+.pillar-tagline{font-size:11px;color:var(--text-muted);font-style:italic;margin-bottom:12px;}
+.pillar-pts{list-style:none;font-size:11px;line-height:1.8;color:rgba(255,255,255,.62);}
+.pillar-pts li::before{content:'· ';color:var(--red);font-weight:900;}
+
+/* ─── TIMELINE ─── */
+.season-row{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:12px;cursor:pointer;transition:border-color .2s;}
+.season-row:hover{border-color:var(--border-hover);}
+.season-header{display:flex;align-items:center;padding:18px 22px;gap:14px;}
+.season-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.season-info{flex:1;}
+.season-name{font-size:14px;font-weight:700;}
+.season-dates{font-size:10px;color:var(--text-muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+.s-badge{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.s-high{background:rgba(232,0,30,.18);color:#FF4060;border:1px solid rgba(232,0,30,.35);}
+.s-med{background:rgba(245,158,11,.14);color:#F59E0B;border:1px solid rgba(245,158,11,.28);}
+.s-low{background:rgba(255,255,255,.06);color:#666;border:1px solid rgba(255,255,255,.1);}
+.s-blue{background:rgba(99,102,241,.16);color:#A5B4FC;border:1px solid rgba(99,102,241,.3);}
+.season-body{display:none;border-top:1px solid var(--border);padding:16px 22px;}
+.season-row.open .season-body{display:block;}
+.stags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.stag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:3px 10px;font-size:10px;font-weight:600;color:rgba(255,255,255,.5);}
+.season-content{font-size:12px;line-height:1.75;color:rgba(255,255,255,.62);}
+.season-content strong{color:var(--text);font-weight:700;}
+.season-content ul{padding-left:16px;margin:6px 0;}
+.season-content li{margin:2px 0;}
+.ctas-row{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;}
+.cta-chip{background:rgba(232,0,30,.1);border:1px solid rgba(232,0,30,.25);border-radius:6px;padding:4px 12px;font-size:10px;font-weight:700;color:#FF4060;letter-spacing:.5px;}
+
+/* ─── KEYWORDS ─── */
+.kw-section-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:24px 0 10px;padding-left:4px;}
+.kw-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s;}
+.kw-card:hover{border-color:var(--border-hover);}
+.kw-main{font-size:13px;font-weight:700;margin-bottom:4px;}
+.kw-intent{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);}
+.vol-tag{display:inline-block;font-size:10px;font-weight:700;margin-top:6px;padding:2px 8px;border-radius:4px;}
+.vol-h{background:rgba(34,197,94,.12);color:#4ADE80;}
+.vol-m{background:rgba(245,158,11,.12);color:#FCD34D;}
+.vol-l{background:rgba(255,255,255,.07);color:#666;}
+
+/* ─── INSIGHTS ─── */
+.insight-card{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin-bottom:14px;}
+.insight-type{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.insight-text{font-size:14px;font-weight:600;line-height:1.5;margin-bottom:8px;}
+.insight-use{font-size:11px;color:var(--text-muted);line-height:1.6;}
+
+/* ─── BENCHMARKS ─── */
+.bench-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:14px;}
+.bench-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;}
+.bench-score{background:var(--red);color:#fff;font-size:13px;font-weight:900;width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bench-meta{flex:1;}
+.bench-title{font-size:13px;font-weight:700;margin-bottom:4px;}
+.bench-type{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);}
+.bench-copy{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.65;font-style:italic;color:rgba(255,255,255,.8);margin-bottom:12px;}
+.bench-why{font-size:12px;line-height:1.65;color:rgba(255,255,255,.55);}
+.bench-why strong{color:var(--text-muted);font-weight:700;}
+
+/* ─── BRIEF FLOW ─── */
+#brief-panel{padding:48px 32px;}
+.brief-wrap{max-width:760px;margin:0 auto;}
+.brief-step{display:none;}
+.brief-step.active{display:block;}
+.brief-question{font-size:22px;font-weight:800;letter-spacing:-0.3px;margin-bottom:8px;}
+.brief-sub{font-size:13px;color:var(--text-muted);margin-bottom:28px;line-height:1.6;}
+.brief-options{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px;}
+.brief-opt{
+  background:var(--surface2);border:2px solid var(--border);border-radius:var(--r);
+  padding:18px 20px;cursor:pointer;transition:all .18s;text-align:left;
+}
+.brief-opt:hover{border-color:rgba(232,0,30,.5);background:var(--surface3);}
+.brief-opt.selected{border-color:var(--red);background:rgba(232,0,30,.08);}
+.brief-opt-icon{font-size:20px;margin-bottom:8px;display:block;}
+.brief-opt-label{font-size:13px;font-weight:700;}
+.brief-opt-desc{font-size:11px;color:var(--text-muted);margin-top:4px;line-height:1.5;}
+.brief-progress{display:flex;gap:8px;margin-bottom:36px;align-items:center;}
+.bp-step{height:3px;border-radius:2px;flex:1;background:var(--border);transition:background .3s;}
+.bp-step.done{background:var(--red);}
+.bp-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);}
+.brief-nav{display:flex;gap:12px;align-items:center;}
+.btn-primary{background:var(--red);color:#fff;border:none;border-radius:8px;padding:12px 28px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.btn-primary:hover{background:#FF1A35;}
+.btn-primary:disabled{background:#333;cursor:not-allowed;}
+.btn-secondary{background:var(--surface3);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;padding:12px 20px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.btn-secondary:hover{color:var(--text);}
+
+/* Brief Result */
+.brief-result{display:none;}
+.brief-result.active{display:block;}
+.brief-summary{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:24px;}
+.brief-summary-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+.brief-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.brief-tag{background:rgba(232,0,30,.1);border:1px solid rgba(232,0,30,.25);border-radius:6px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF4060;}
+.brief-recs{font-size:13px;line-height:1.7;color:rgba(255,255,255,.7);}
+.brief-recs strong{color:var(--text);font-weight:700;}
+.recs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px;}
+.rec-block{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:16px;}
+.rec-cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.rec-text{font-size:12px;line-height:1.7;color:rgba(255,255,255,.62);}
+.reset-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:10px 20px;color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:20px;}
+.reset-btn:hover{border-color:rgba(255,255,255,.25);color:var(--text);}
+
+/* ─── EVALUADOR ─── */
+.eval-layout{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start;}
+@media(max-width:900px){
+  .eval-layout{grid-template-columns:1fr;}
+  .results-sticky{position:static!important;}
+}
+.eval-form-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:26px;}
+.form-group{margin-bottom:18px;}
+.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+textarea,select,input[type="text"]{
+  width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.1);border-radius:8px;
+  padding:11px 14px;color:var(--text);font-family:'Montserrat',sans-serif;font-size:13px;outline:none;
+  transition:border-color .2s;resize:vertical;
+}
+textarea{min-height:110px;}
+textarea:focus,select:focus,input[type="text"]:focus{border-color:var(--red);}
+select option{background:var(--surface2);}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px;}
+.sel-badge{
+  padding:5px 12px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.5px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);
+  transition:all .15s;user-select:none;
+}
+.sel-badge.on{background:var(--red);color:#fff;border-color:var(--red);}
+.eval-btn{
+  width:100%;background:var(--red);color:#fff;border:none;border-radius:8px;
+  padding:13px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:4px;
+}
+.eval-btn:hover{background:#FF1A35;}
+.eval-btn:disabled{background:#2a2a2a;color:#444;cursor:not-allowed;}
+.char-meta{font-size:10px;color:var(--text-dim);margin-top:5px;font-weight:600;}
+
+/* Results */
+.results-sticky{position:sticky;top:100px;}
+.score-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:14px;}
+.score-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.score-number{font-size:60px;font-weight:900;line-height:1;letter-spacing:-2px;}
+.score-right{text-align:right;}
+.score-grade{font-size:18px;font-weight:800;margin-bottom:3px;}
+.score-of{font-size:10px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.score-bars{display:flex;flex-direction:column;gap:10px;}
+.bar-row{display:flex;flex-direction:column;gap:3px;}
+.bar-lbl{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.3px;color:rgba(255,255,255,.5);}
+.bar-track{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;transition:width .9s cubic-bezier(.4,0,.2,1);}
+.feedback-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:14px;}
+.fb-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+.fb-item{display:flex;gap:10px;margin-bottom:10px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.68);align-items:flex-start;}
+.fb-icon{font-size:13px;flex-shrink:0;}
+.rewrite-box{background:rgba(0,0,0,.4);border:1px solid rgba(232,0,30,.2);border-radius:8px;padding:14px 16px;margin-top:14px;}
+.rewrite-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+.rewrite-text{font-size:12px;line-height:1.65;color:rgba(255,255,255,.75);font-style:italic;}
+.copy-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:6px 14px;color:rgba(255,255,255,.5);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:10px;width:100%;}
+.copy-btn:hover{background:rgba(255,255,255,.1);color:var(--text);}
+.save-btn{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:6px;padding:6px 14px;color:#4ADE80;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:6px;width:100%;}
+.save-btn:hover{background:rgba(34,197,94,.18);}
+.placeholder{text-align:center;padding:40px 20px;color:var(--text-dim);font-size:13px;font-weight:600;}
+.placeholder-icon{font-size:36px;display:block;margin-bottom:12px;opacity:.4;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ─── COPY BANK ─── */
+.bank-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+.bank-search{flex:1;min-width:200px;}
+.bank-search input{width:100%;}
+.bank-filter-row{display:flex;gap:6px;flex-wrap:wrap;}
+.bank-empty{text-align:center;padding:60px 20px;color:var(--text-dim);}
+.bank-empty-icon{font-size:40px;display:block;margin-bottom:12px;opacity:.3;}
+.bank-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.bank-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px;position:relative;transition:border-color .2s;}
+.bank-card:hover{border-color:var(--border-hover);}
+.bank-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.bank-score-badge{background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;}
+.bank-date{font-size:10px;color:var(--text-dim);font-weight:600;}
+.bank-copy-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:12px;border-left:2px solid var(--red);padding-left:12px;}
+.bank-meta-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.bank-del{position:absolute;top:12px;right:12px;background:none;border:none;color:rgba(255,255,255,.2);cursor:pointer;font-size:16px;transition:color .2s;line-height:1;}
+.bank-del:hover{color:#FF4060;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:700px){
+  .panel{padding:24px 16px;}
+  #topbar{padding:0 16px;}
+  #nav{padding:0 16px;}
+  #brief-panel{padding:32px 16px;}
+  .brief-options{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <div class="brand">
+    <div class="brand-badge">Economy</div>
+    <div class="brand-label">Plataforma Creativa · v2</div>
+  </div>
+  <div class="topbar-right">LiftBrand · Uso interno</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="nav-btn" onclick="goTab(&#39;brief&#39;)">🗂 Brief de Campaña</button>
+  <button class="nav-btn" onclick="goTab(&#39;propuesta&#39;)">🏛 Propuesta de Valor</button>
+  <button class="nav-btn" onclick="goTab(&#39;calendario&#39;)">📅 Calendario Estacional</button>
+  <button class="nav-btn" onclick="goTab(&#39;keywords&#39;)">🔍 Keywords</button>
+  <button class="nav-btn" onclick="goTab(&#39;insights&#39;)">💡 Insights</button>
+  <button class="nav-btn" onclick="goTab(&#39;benchmarks&#39;)">📊 Benchmarks</button>
+  <button class="nav-btn active" onclick="goTab(&#39;evaluador&#39;)">⚡ Evaluador de Copy</button>
+  <button class="nav-btn" onclick="goTab(&#39;banco&#39;)">🗄 Banco de Copies</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: BRIEF -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="brief-panel" class="panel">
+<div class="brief-wrap">
+  <div class="section-head">
+    <div class="eyebrow">Punto de partida</div>
+    <div class="section-title">Brief de Campaña</div>
+    <div class="section-sub">Antes de crear, alineá el mensaje. Respondé 3 preguntas y recibís contexto filtrado y recomendaciones específicas para tu anuncio.</div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="brief-progress">
+    <div class="bp-step" id="bp1" style="background: var(--red);"></div>
+    <div class="bp-step" id="bp2" style="background: var(--red);"></div>
+    <div class="bp-step" id="bp3" style="background: var(--red);"></div>
+    <div class="bp-label" id="bp-label">Listo</div>
+  </div>
+
+  <!-- STEP 1: Audiencia -->
+  <div class="brief-step" id="bstep1">
+    <div class="brief-question">¿A quién va dirigido el anuncio?</div>
+    <div class="brief-sub">La audiencia define el tono, el beneficio principal y el canal óptimo.</div>
+    <div class="brief-options">
+      <div class="brief-opt selected" onclick="selectBrief(&#39;audience&#39;,&#39;local&#39;,&#39;🇨🇷 Tico local&#39;)">
+        <span class="brief-opt-icon">🇨🇷</span>
+        <div class="brief-opt-label">Tico local</div>
+        <div class="brief-opt-desc">Costa Rica, usa el carro para moverse por el país</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;exterior&#39;,&#39;✈️ Tico en el exterior&#39;)">
+        <span class="brief-opt-icon">✈️</span>
+        <div class="brief-opt-label">Tico en el exterior</div>
+        <div class="brief-opt-desc">Viaja a Florida u otro destino desde CR</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;turista&#39;,&#39;🌍 Turista internacional&#39;)">
+        <span class="brief-opt-icon">🌍</span>
+        <div class="brief-opt-label">Turista internacional</div>
+        <div class="brief-opt-desc">Llega a CR y necesita movilidad local</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;empresa&#39;,&#39;🏢 Empresa / corporativo&#39;)">
+        <span class="brief-opt-icon">🏢</span>
+        <div class="brief-opt-label">Empresa / corporativo</div>
+        <div class="brief-opt-desc">Flota temporal, viajero de negocios</div>
+      </div>
+    </div>
+    <div class="brief-nav">
+      <button class="btn-primary" id="b1-next" onclick="briefNext(2)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Temporada -->
+  <div class="brief-step" id="bstep2">
+    <div class="brief-question">¿A qué temporada responde?</div>
+    <div class="brief-sub">El contexto estacional define la urgencia, los beneficios a destacar y el tono emocional del mensaje.</div>
+    <div class="brief-options">
+      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;semana-santa&#39;,&#39;🌴 Semana Santa&#39;)">
+        <span class="brief-opt-icon">🌴</span>
+        <div class="brief-opt-label">Semana Santa</div>
+        <div class="brief-opt-desc">Marzo–Abril · Máxima demanda interna</div>
+      </div>
+      <div class="brief-opt selected" onclick="selectBrief(&#39;season&#39;,&#39;turismo-alto&#39;,&#39;⭐ Temporada turismo alta&#39;)">
+        <span class="brief-opt-icon">⭐</span>
+        <div class="brief-opt-label">Temporada Alta Turismo</div>
+        <div class="brief-opt-desc">Diciembre–Febrero · Turistas internacionales</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;florida&#39;,&#39;🌊 Viajes a Florida&#39;)">
+        <span class="brief-opt-icon">🌊</span>
+        <div class="brief-opt-label">Viajes a Florida</div>
+        <div class="brief-opt-desc">Dic–Ene / Jul–Ago · Ticos en EE.UU.</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;verano-escolar&#39;,&#39;🎒 Verano Escolar&#39;)">
+        <span class="brief-opt-icon">🎒</span>
+        <div class="brief-opt-label">Verano Escolar</div>
+        <div class="brief-opt-desc">Nov–Dic + Julio · Familias con niños</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;feriado&#39;,&#39;🗓 Feriado / Puente&#39;)">
+        <span class="brief-opt-icon">🗓</span>
+        <div class="brief-opt-label">Feriado / Puente</div>
+        <div class="brief-opt-desc">Abr, May, Sep · Escape corto, urgente</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;general&#39;,&#39;📌 Sin temporada específica&#39;)">
+        <span class="brief-opt-icon">📌</span>
+        <div class="brief-opt-label">Sin temporada</div>
+        <div class="brief-opt-desc">Marca general, awareness, captación</div>
+      </div>
+    </div>
+    <div class="brief-nav">
+      <button class="btn-secondary" onclick="briefBack(1)">← Atrás</button>
+      <button class="btn-primary" id="b2-next" onclick="briefNext(3)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Pilar -->
+  <div class="brief-step" id="bstep3">
+    <div class="brief-question">¿Cuál es el pilar principal del mensaje?</div>
+    <div class="brief-sub">Cada anuncio debe anclarse en UN pilar. Si se te ocurren dos, hacés dos creatividades.</div>
+    <div class="brief-options">
+      <div class="brief-opt selected" onclick="selectBrief(&#39;pillar&#39;,&#39;cercania&#39;,&#39;📍 Cercanía&#39;)">
+        <span class="brief-opt-icon">📍</span>
+        <div class="brief-opt-label">Cercanía</div>
+        <div class="brief-opt-desc">Ubicaciones, delivery, aeropuerto, hotel</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;beneficios&#39;,&#39;🎁 Beneficios Exclusivos&#39;)">
+        <span class="brief-opt-icon">🎁</span>
+        <div class="brief-opt-label">Beneficios Exclusivos</div>
+        <div class="brief-opt-desc">Florida, descuentos, conductor gratis</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;pura-vida&#39;,&#39;☕ Servicio Pura Vida&#39;)">
+        <span class="brief-opt-icon">☕</span>
+        <div class="brief-opt-label">Servicio Pura Vida</div>
+        <div class="brief-opt-desc">Marca tica, trato, 40 años, café</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;velocidad&#39;,&#39;⚡ Velocidad&#39;)">
+        <span class="brief-opt-icon">⚡</span>
+        <div class="brief-opt-label">Velocidad</div>
+        <div class="brief-opt-desc">Pre-registro, WhatsApp, sin esperas</div>
+      </div>
+      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;oferta&#39;,&#39;💰 Oferta / Urgencia&#39;)">
+        <span class="brief-opt-icon">💰</span>
+        <div class="brief-opt-label">Oferta / Urgencia</div>
+        <div class="brief-opt-desc">Descuento activo, pocas unidades, deadline</div>
+      </div>
+    </div>
+    <div class="brief-nav">
+      <button class="btn-secondary" onclick="briefBack(2)">← Atrás</button>
+      <button class="btn-primary" id="b3-next" onclick="showBriefResult()">Ver recomendaciones →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="brief-result active" id="brief-result">
+    <div class="brief-summary">
+      <div class="brief-summary-title">Tu brief</div>
+      <div class="brief-tags" id="brief-tags-display"><span class="brief-tag">🇨🇷 Tico local</span><span class="brief-tag">⭐ Temporada Alta Turismo</span><span class="brief-tag">📍 Cercanía</span></div>
+      <div id="brief-recs-content">
+    <div class="brief-recs"><strong>Pilar activo:</strong> General</div>
+    <div class="recs-grid"><div class="rec-block"><div class="rec-cat">Enfocate en un solo beneficio</div><div class="rec-text">El copy más efectivo en esta categoría habla de una cosa. Elegí el diferenciador más relevante para tu audiencia y llévalo hasta las últimas consecuencias.</div></div><div class="rec-block"><div class="rec-cat">CTA siempre presente</div><div class="rec-text">WhatsApp, Cotizar o Reservar. Sin CTA no hay lead. El CTA debe ser visible sin scroll.</div></div><div class="rec-block"><div class="rec-cat">Urgencia cuando aplica</div><div class="rec-text">Si hay una razón de plazo real (temporada, disponibilidad, oferta) — usala. Si no la hay, no la inventes.</div></div></div>
+  </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px;">
+      <button class="btn-primary" onclick="goToEvaluator()">Ir al Evaluador con este contexto →</button>
+      <button class="reset-btn" onclick="resetBrief()">Nuevo brief</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: PROPUESTA DE VALOR -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="propuesta-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Foundation</div>
+    <div class="section-title">Propuesta de Valor</div>
+    <div class="section-sub">Todo mensaje de pauta debe anclarse en uno de estos pilares. La pregunta que cada pieza responde: <em>"¿Por qué alguien NOS debe escoger?"</em></div>
+  </div>
+  <div class="mandate">
+    <div class="mandate-label">Mandato de comunicación</div>
+    <div class="mandate-text">Cada mensaje cae dentro de UN pilar — no necesita cubrirlos todos.<br>Claridad &gt; completitud.</div>
+  </div>
+  <div class="pillar-grid" id="pillar-grid"><div class="pillar-card">
+      <div class="pillar-icon">📍</div>
+      <div class="pillar-name">Cercanía</div>
+      <div class="pillar-tagline">"Estamos donde vos estás"</div>
+      <ul class="pillar-pts"><li>Múltiples puntos de renta en todo el país</li><li>Entrega y devolución a domicilio (hasta 10 km de una oficina)</li><li>Recogé o devolvé directo en el aeropuerto o tu hotel</li><li>Oficinas estratégicas a lo largo de Costa Rica</li></ul>
+      <span class="pill pill-green">Diferenciador local</span>
+    </div><div class="pillar-card">
+      <div class="pillar-icon">🎁</div>
+      <div class="pillar-name">Beneficios Exclusivos</div>
+      <div class="pillar-tagline">"El Rent a Car de los Ticos tiene ventajas globales"</div>
+      <ul class="pillar-pts"><li>Florida: conductor adicional gratis, one-way gratis, upgrade gratis, siempre hay un descuento</li><li>Mundo: 10% de descuento para ticos, hasta 20% con registro en el sitio web</li><li>Amplia flota: sedanes, pickups, microbuses — para todo tipo de viaje</li></ul>
+      <span class="pill pill-red">Alta conversión</span>
+    </div><div class="pillar-card">
+      <div class="pillar-icon">☕</div>
+      <div class="pillar-name">Servicio Pura Vida</div>
+      <div class="pillar-tagline">"Marca tica, trato tico"</div>
+      <ul class="pillar-pts"><li>Te recibimos con un café</li><li>Guía del país incluida para conocer Costa Rica</li><li>Modificá tu reservación sin complicaciones</li><li>Marca 100% costarricense con casi 40 años de trayectoria</li></ul>
+      <span class="pill pill-amber">Conexión emocional</span>
+    </div><div class="pillar-card">
+      <div class="pillar-icon">⚡</div>
+      <div class="pillar-name">Velocidad</div>
+      <div class="pillar-tagline">"Tu tiempo vale"</div>
+      <ul class="pillar-pts"><li>Pre-registro / pre check-in antes de llegar a la oficina</li><li>Comunicación directa por WhatsApp</li><li>Proceso de alquiler ágil — sin filas, sin demoras</li></ul>
+      <span class="pill pill-blue">Elimina fricción</span>
+    </div><div class="pillar-card">
+      <div class="pillar-icon">💰</div>
+      <div class="pillar-name">Oferta / Urgencia</div>
+      <div class="pillar-tagline">"La oferta correcta en el momento correcto"</div>
+      <ul class="pillar-pts"><li>Descuentos puntuales (Semana Santa, temporada alta, feriados)</li><li>Upgrade de vehículo gratis (sujeto a disponibilidad)</li><li>Horas extras gratis · Conductor(es) adicional gratis</li><li>Drop-offs flexibles y gratuitos entre oficinas</li></ul>
+      <span class="pill pill-red">Activación directa</span>
+    </div></div>
+  <div class="divider"></div>
+  <div class="section-head">
+    <div class="eyebrow">Anti-patrones</div>
+    <div class="section-title">Qué NO comunicar</div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">❌ Mensajes genéricos</div>
+      <div class="card-body">Frases como "calidad y precio" sin anclarlas a un diferenciador real. Economy tiene ventajas concretas — usarlas.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">❌ Pilares mezclados</div>
+      <div class="card-body">Un anuncio efectivo habla de UNA cosa. No mezclar cercanía + beneficios + Pura Vida en el mismo copy.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">❌ Sin CTA</div>
+      <div class="card-body">Toda pieza de lead gen necesita un llamado a la acción explícito: Reservar, Cotizar, WhatsApp, Ver oferta.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">❌ Competencia por precio</div>
+      <div class="card-body">No competir en precio puro. Comunicar valor: conductor gratis, sin sorpresas, upgrade incluido.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: CALENDARIO -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="calendario-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Costa Rica · Año completo</div>
+    <div class="section-title">Calendario Estacional</div>
+    <div class="section-sub">Clic en cada temporada para ángulos de mensaje, hashtags y CTAs recomendados. Recordá anticipar la pauta 3–4 semanas antes del pico.</div>
+  </div>
+  <div id="timeline-container"><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#E8001E"></div>
+        <div class="season-info">
+          <div class="season-name">Semana Santa / Pascua</div>
+          <div class="season-dates">Variable · Marzo o Abril · 1–2 semanas</div>
+        </div>
+        <div class="s-badge s-high">Temporada Alta</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#SalidaDeViaje</span><span class="stag">#SemanaSanta</span><span class="stag">#TurismoNacional</span><span class="stag">#EconomyRac</span></div>
+        <div class="season-content"><strong>El momento de mayor demanda del año.</strong> Familias ticas que salen a playa, montaña y tours internos. La flota se agota — la urgencia es real y se puede comunicar honestamente.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Urgencia: "Quedan pocas unidades — reservá hoy"</li>
+    <li>Flota: pickups y microbuses para grupos grandes</li>
+    <li>Cercanía: recogé en el aeropuerto o te llevamos el carro</li>
+    <li>Servicio Pura Vida: guía del país incluida</li></ul><br>
+    <strong>Anticipación:</strong> Pautar 3–4 semanas antes del inicio.</div>
+        <div class="ctas-row"><span class="cta-chip">Reservar ahora</span><span class="cta-chip">Verificar disponibilidad</span><span class="cta-chip">WhatsApp → ya</span></div>
+      </div>
+    </div><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#E8001E"></div>
+        <div class="season-info">
+          <div class="season-name">Temporada Alta Turismo Internacional</div>
+          <div class="season-dates">Diciembre – Febrero</div>
+        </div>
+        <div class="s-badge s-high">Temporada Alta</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#CRTravel</span><span class="stag">#CostaRica</span><span class="stag">#RentACar</span><span class="stag">#Vacation</span></div>
+        <div class="season-content"><strong>Pico de turistas estadounidenses y europeos.</strong> Oportunidad de comunicar en inglés o bilingüe para capturar búsquedas desde el exterior. Alta competencia en búsquedas — diferenciarse en servicio, no en precio.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Recogida directa en Juan Santamaría</li>
+    <li>Pre-registro: llegás y el carro ya te espera</li>
+    <li>Flota variada: pickups para aventura</li>
+    <li>WhatsApp en español e inglés</li></ul></div>
+        <div class="ctas-row"><span class="cta-chip">Reserve Now</span><span class="cta-chip">Book Online</span><span class="cta-chip">Get a Quote</span></div>
+      </div>
+    </div><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#6366F1"></div>
+        <div class="season-info">
+          <div class="season-name">Viajes a Florida</div>
+          <div class="season-dates">Todo el año · Pico: Dic–Ene y Jul–Ago</div>
+        </div>
+        <div class="s-badge s-blue">Segmento Exclusivo</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#ViajeAFlorida</span><span class="stag">#Miami</span><span class="stag">#DisneyWorld</span><span class="stag">#EconomyFlorida</span></div>
+        <div class="season-content"><strong>Segmento de alta intención de compra.</strong> Economy tiene beneficios exclusivos para ticos en Florida que la competencia no puede igualar — este es el diferenciador más poderoso de la marca.<br><br>
+    <strong>Hero message:</strong> "Conductor adicional + one-way + upgrade. Todo gratis en Florida."<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Listar los 3 beneficios de corrido — son el anuncio</li>
+    <li>Siempre hay un descuento disponible</li>
+    <li>Marca de confianza: 40 años, ticos como vos</li>
+    <li>Proceso fácil: reservás desde CR, recogés allá</li></ul></div>
+        <div class="ctas-row"><span class="cta-chip">Ver oferta Florida</span><span class="cta-chip">Reservar en Miami</span><span class="cta-chip">Cotizar Orlando</span><span class="cta-chip">WhatsApp</span></div>
+      </div>
+    </div><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#F59E0B"></div>
+        <div class="season-info">
+          <div class="season-name">Verano Escolar Costarricense</div>
+          <div class="season-dates">Noviembre–Diciembre (vacaciones) + Julio</div>
+        </div>
+        <div class="s-badge s-med">Temporada Media</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#VacacionesEscolares</span><span class="stag">#PlanesEnFamilia</span><span class="stag">#TurismoTico</span></div>
+        <div class="season-content"><strong>Familias con niños buscan planes de viaje.</strong> Tono cálido, familiar, accesible. Microbuses y vehículos grandes son el producto estrella en esta temporada.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Microbuses: "Que quepan todos"</li>
+    <li>Conductor adicional gratis — turnos en el camino</li>
+    <li>Flexibilidad: modificá tu reserva en cualquier momento</li>
+    <li>Pura Vida: café y guía incluidos</li></ul></div>
+        <div class="ctas-row"><span class="cta-chip">Planear viaje</span><span class="cta-chip">Ver flota familiar</span><span class="cta-chip">Cotizar</span></div>
+      </div>
+    </div><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#F59E0B"></div>
+        <div class="season-info">
+          <div class="season-name">Feriados Largos y Puentes</div>
+          <div class="season-dates">11 Abr · 1 May · 15 Sep · otros</div>
+        </div>
+        <div class="s-badge s-med">Temporada Media</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#FeriadoLargo</span><span class="stag">#PuenteTico</span><span class="stag">#SeFinDeEscapar</span></div>
+        <div class="season-content"><strong>Ventanas cortas con alta intención de viaje de último momento.</strong> Menor competencia que Semana Santa pero urgencia real. El creativo debe comunicar disponibilidad y rapidez del proceso.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Urgencia + disponibilidad inmediata</li>
+    <li>Entrega a domicilio — salís rápido desde tu casa</li>
+    <li>WhatsApp: reservá en minutos</li>
+    <li>Upgrade si hay disponibilidad</li></ul></div>
+        <div class="ctas-row"><span class="cta-chip">Reservar hoy</span><span class="cta-chip">Disponibilidad limitada</span><span class="cta-chip">WhatsApp ya</span></div>
+      </div>
+    </div><div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:#555"></div>
+        <div class="season-info">
+          <div class="season-name">Temporada Baja</div>
+          <div class="season-dates">Mayo–Junio · Agosto–Septiembre</div>
+        </div>
+        <div class="s-badge s-low">Temporada Baja</div>
+      </div>
+      <div class="season-body">
+        <div class="stags"><span class="stag">#TemporadaBaja</span><span class="stag">#OfertaEspecial</span></div>
+        <div class="season-content"><strong>Momento para cultivar marca y capturar demanda latente.</strong> Menos competencia en pauta significa menor CPL — buena oportunidad para construir base de datos y retargeting.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Descuentos especiales para reactivar interés</li>
+    <li>Contenido educativo: "¿Sabías que podés devolver en otra oficina?"</li>
+    <li>Registro en el sitio web: hasta 20% de descuento permanente</li>
+    <li>Construir base: retargeting y lookalikes para picos futuros</li></ul></div>
+        <div class="ctas-row"><span class="cta-chip">Registrarse</span><span class="cta-chip">Ver descuento</span><span class="cta-chip">Conocer beneficios</span></div>
+      </div>
+    </div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: KEYWORDS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="keywords-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Rent a Car · Costa Rica</div>
+    <div class="section-title">Keywords &amp; Categoría</div>
+    <div class="section-sub">Términos de búsqueda por intención para orientar copies, CTAs y targeting en SEM y redes.</div>
+  </div>
+  <div id="kw-container"><div class="kw-section-title">🔍 Alta intención · Costa Rica</div>
+    <div class="grid-3">
+      <div class="kw-card">
+        <div class="kw-main">alquilar carro Costa Rica</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">rent a car aeropuerto Juan Santamaría</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquiler de carros baratos Costa Rica</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">renta de vehículos San José</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquiler pickup Costa Rica</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquiler microbús Costa Rica</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-l">Nicho</span>
+      </div>
+    </div><div class="kw-section-title">✈️ Segmento Florida</div>
+    <div class="grid-3">
+      <div class="kw-card">
+        <div class="kw-main">rent a car Florida ticos</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquilar carro Miami desde Costa Rica</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">one way car rental Florida</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">Economy Rent a Car Florida</div>
+        <div class="kw-intent">Navegacional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquiler carro Orlando</div>
+        <div class="kw-intent">Transaccional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+    </div><div class="kw-section-title">📅 Estacionales / Urgencia</div>
+    <div class="grid-3">
+      <div class="kw-card">
+        <div class="kw-main">alquilar carro Semana Santa</div>
+        <div class="kw-intent">Estacional</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">renta carro vacaciones escolares</div>
+        <div class="kw-intent">Estacional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">alquiler vehículo diciembre Costa Rica</div>
+        <div class="kw-intent">Estacional</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">carro alquilado feriado Costa Rica</div>
+        <div class="kw-intent">Estacional</div>
+        <span class="vol-tag vol-l">Nicho</span>
+      </div>
+    </div><div class="kw-section-title">💬 Branding / Redes Sociales</div>
+    <div class="grid-3">
+      <div class="kw-card">
+        <div class="kw-main">#ElRentaCarDeLosticos</div>
+        <div class="kw-intent">Branding</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">#EconomyRentaCar</div>
+        <div class="kw-intent">Branding</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">el rent a car de los ticos</div>
+        <div class="kw-intent">Branding</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+    </div><div class="kw-section-title">🆚 Comparativo / Decisión</div>
+    <div class="grid-3">
+      <div class="kw-card">
+        <div class="kw-main">mejor rent a car Costa Rica</div>
+        <div class="kw-intent">Comparativo</div>
+        <span class="vol-tag vol-h">Alto volumen</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">rent a car confiable aeropuerto CR</div>
+        <div class="kw-intent">Comparativo</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">empresa alquiler 100% costarricense</div>
+        <div class="kw-intent">Comparativo</div>
+        <span class="vol-tag vol-l">Nicho</span>
+      </div>
+      <div class="kw-card">
+        <div class="kw-main">rent a car sin tarjeta de crédito CR</div>
+        <div class="kw-intent">Comparativo</div>
+        <span class="vol-tag vol-m">Medio</span>
+      </div>
+    </div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: INSIGHTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="insights-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Categoría · Comportamiento · Marca</div>
+    <div class="section-title">Insights Accionables</div>
+    <div class="section-sub">Verdades sobre el consumidor tico y el mercado rent a car para construir mensajes de mayor impacto.</div>
+  </div>
+  <div id="insights-container"><div class="insight-card">
+      <div class="insight-type">Comportamiento de compra</div>
+      <div class="insight-text">El tico compara antes de reservar un rent a car. Economy tiene diferenciadores tangibles que otros no pueden igualar: marca propia, beneficios exclusivos en Florida, trato tico.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> En copies de consideración: mostrar la diferencia explícitamente sin mencionar competidores. "Otros te cobran extra. En Economy, no."</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight de servicio</div>
+      <div class="insight-text">La fricción más grande en el alquiler de carros es el proceso en mostrador: esperar, firmar papeles, cargos inesperados. Economy tiene el pre-registro como solución directa.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Ángulo: "Llegás y tu carro ya te está esperando. Sí, así de fácil." → CTA: Pre-registrarse.</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight Florida</div>
+      <div class="insight-text">Miles de costarricenses viajan a Florida cada año. Es uno de los destinos #1 de la diáspora tica. Economy tiene beneficios exclusivos ahí — segmento poco explotado en pauta digital.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Campaña específica "Economy en Florida" con creatividades en español para la comunidad tica. Los 3 beneficios juntos son el copy.</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight emocional</div>
+      <div class="insight-text">El eslogan "El Rent a Car de los Ticos" no es solo posicionamiento — es permiso de compra. Marca 100% tica con 40 años: el consumidor confía más que con una franquicia extranjera.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> "Casi 40 años llevando ticos por el mundo." No necesita descuento — vende por orgullo.</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight de precio</div>
+      <div class="insight-text">El consumidor busca "barato" pero compra por confianza y conveniencia. Comunicar precio bajo atrae leads de baja calidad. Comunicar valor atrae compradores.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Cambiar el ángulo: de "¡Precios bajos!" a "Tu viaje sin sorpresas. Conductor adicional gratis, upgrade incluido."</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight de urgencia</div>
+      <div class="insight-text">La escasez en rent a car es real en temporada alta: Semana Santa y diciembre se agotan. Esta urgencia no se fabrica — se comunica y se respalda con datos.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> "¡Quedan pocos días para Semana Santa! La flota se agota rápido — asegurá el tuyo." Funciona porque es verdad.</div>
+    </div><div class="insight-card">
+      <div class="insight-type">Insight digital</div>
+      <div class="insight-text">WhatsApp es el canal de comunicación preferido en Costa Rica para empresas. Reducir la fricción del proceso de cotización a un mensaje de WhatsApp multiplica las conversiones.</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> CTA principal en todo material: botón de WhatsApp directo. Evitar formularios largos como primer paso.</div>
+    </div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: BENCHMARKS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="benchmarks-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Estándares de la categoría</div>
+    <div class="section-title">Benchmarks de Copy</div>
+    <div class="section-sub">Copies de referencia que funcionan en la categoría rent a car y movilidad — con el análisis de <em>por qué</em> convierten. Usalos como estándar mínimo, no como techo.</div>
+  </div>
+  <div id="benchmarks-container"><div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">A+</div>
+        <div class="bench-meta">
+          <div class="bench-title">Facebook Feed · Urgencia estacional</div>
+          <div class="bench-type">fb_ig_feed</div>
+        </div>
+      </div>
+      <div class="bench-copy">"¿Ya tenés tu carro para Semana Santa? 🌴 Los últimos años se agotan rápido. Asegurá el tuyo hoy con Economy — te lo entregamos en el aeropuerto o en tu hotel.<br><br>✅ Modificación de reserva gratis<br>✅ Guía del país incluida<br><br>→ Reservar ahora por WhatsApp"</div>
+      <div class="bench-why"><strong>¿Por qué funciona?</strong> Empieza con una pregunta que activa la duda en el lector. La urgencia ("se agotan rápido") es creíble porque es verdadera. Los bullets son beneficios, no atributos. El CTA es específico y tiene un canal claro.</div>
+    </div><div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">A</div>
+        <div class="bench-meta">
+          <div class="bench-title">Google Search · Alta intención</div>
+          <div class="bench-type">google_search</div>
+        </div>
+      </div>
+      <div class="bench-copy">"Economy Rent a Car CR | Conductor Adicional Gratis | Reservá en 2 min por WhatsApp"</div>
+      <div class="bench-why"><strong>¿Por qué funciona?</strong> Para Search, el headline es todo. Menciona la marca (confianza), un beneficio gancho (conductor gratis), y elimina la fricción de proceso (2 min, WhatsApp). 87 caracteres — dentro del límite.</div>
+    </div><div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">A</div>
+        <div class="bench-meta">
+          <div class="bench-title">Stories / Reels · Awareness Florida</div>
+          <div class="bench-type">stories_reels</div>
+        </div>
+      </div>
+      <div class="bench-copy">"¿Vas a Florida? En Economy tenés: conductor adicional gratis + one-way gratis + upgrade gratis. Solo por ser tico. 🇨🇷<br><br>→ Deslizá para cotizar"</div>
+      <div class="bench-why"><strong>¿Por qué funciona?</strong> Para stories el copy va arriba, corto, con gancho directo. Listar los 3 beneficios de corrido es más poderoso que describir uno solo. "Solo por ser tico" activa el orgullo de identidad.</div>
+    </div><div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">B+</div>
+        <div class="bench-meta">
+          <div class="bench-title">Facebook Feed · Marca / Pura Vida</div>
+          <div class="bench-type">fb_ig_feed</div>
+        </div>
+      </div>
+      <div class="bench-copy">"Casi 40 años llevando ticos por Costa Rica y el mundo. Porque aquí no solo alquilás un carro — te recibimos con café, te damos la guía del país y te acompañamos en cada kilómetro.<br><br>Economy. El Rent a Car de los Ticos. 🇨🇷<br><br>→ Conocé nuestras sucursales"</div>
+      <div class="bench-why"><strong>¿Por qué funciona?</strong> Anuncio de marca sin descuento — vende por identidad. El "no solo alquilás un carro" contrasta con la expectativa y abre curiosidad. El CTA lleva a una acción de bajo compromiso (ver sucursales), correcto para awareness.</div>
+    </div><div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">B+</div>
+        <div class="bench-meta">
+          <div class="bench-title">WhatsApp Broadcast · Temporada baja</div>
+          <div class="bench-type">whatsapp</div>
+        </div>
+      </div>
+      <div class="bench-copy">"Hola [nombre] 👋 Sabemos que aún no es Semana Santa, pero los mejores precios de Economy están disponibles ahora. Reservá hoy y asegurá tu carro con descuento.<br><br>¿Cuándo vas a salir? Respondé este mensaje y te cotizamos."</div>
+      <div class="bench-why"><strong>¿Por qué funciona?</strong> El tono conversacional es correcto para WhatsApp — no es un anuncio, es un mensaje. La pregunta al final activa la respuesta (y el lead). "Los mejores precios están ahora" es urgencia sin mentir.</div>
+    </div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: EVALUADOR -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="evaluador-panel" class="panel active">
+  <div class="section-head">
+    <div class="eyebrow">Copy Checker · IA</div>
+    <div class="section-title">Evaluador de Copy</div>
+    <div class="section-sub">Pegá el texto de tu anuncio. La IA evalúa contra la propuesta de valor de Economy y estándares de la categoría. Siempre genera una versión mejorada.</div>
+  </div>
+  <div class="eval-layout">
+    <div class="eval-form-card">
+      <div class="form-group">
+        <div class="form-label">Texto del anuncio</div>
+        <textarea id="copy-input" placeholder="Headline + body + CTA. Ej: ¡Viajá a Florida con Economy! Conductor adicional gratis + upgrade. Reservá antes del 31 → WhatsApp" oninput="updateCharCount()"></textarea>
+        <div class="char-meta" id="char-meta">15 caracteres · FB ideal ≤125 headline · Google ≤30</div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Plataforma / Formato</div>
+        <select id="fmt-sel">
+          <option value="">— Seleccionar —</option>
+          <option value="fb_ig_feed">Facebook / Instagram Feed</option>
+          <option value="stories_reels">Stories / Reels</option>
+          <option value="google_search">Google Search Ads</option>
+          <option value="google_display">Google Display</option>
+          <option value="whatsapp">WhatsApp Broadcast</option>
+          <option value="email">Email / Newsletter</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Temporada</div>
+        <div class="badge-row" id="season-sel-row"><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Semana Santa</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Florida</span><span class="sel-badge on" onclick="toggleBadge(this,&#39;season&#39;)">Turismo alto</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Verano Escolar</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Feriado</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Sin temporada</span></div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Pilar de propuesta de valor</div>
+        <div class="badge-row">
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">📍 Cercanía</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">🎁 Beneficios</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">☕ Pura Vida</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">⚡ Velocidad</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">💰 Oferta</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Audiencia</div>
+        <div class="badge-row">
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🇨🇷 Tico local</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">✈️ Tico exterior</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🌍 Turista</span>
+          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🏢 Corporativo</span>
+        </div>
+      </div>
+      <button class="eval-btn" id="eval-btn" onclick="runEval()">Evaluar copy</button>
+    </div>
+    <div class="results-sticky">
+      <div id="eval-results"><div class="score-card"><div class="placeholder"><span class="placeholder-icon">⚠️</span>Error al evaluar. Intentá de nuevo.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PANEL: BANCO DE COPIES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="banco-panel" class="panel">
+  <div class="section-head">
+    <div class="eyebrow">Archivo de referencia</div>
+    <div class="section-title">Banco de Copies Aprobados</div>
+    <div class="section-sub">Copies que pasaron evaluación con buen score. Se guardan aquí como referencia y punto de partida para futuras campañas.</div>
+  </div>
+  <div class="bank-toolbar">
+    <div class="bank-search"><input type="text" id="bank-search" placeholder="Buscar en el banco..." oninput="renderBank()"></div>
+    <div class="bank-filter-row" id="bank-filter-row">
+      <span class="sel-badge on" onclick="bankFilter(this,&#39;all&#39;)">Todos</span>
+      <span class="sel-badge" onclick="bankFilter(this,&#39;cercanía&#39;)">📍 Cercanía</span>
+      <span class="sel-badge" onclick="bankFilter(this,&#39;beneficios&#39;)">🎁 Beneficios</span>
+      <span class="sel-badge" onclick="bankFilter(this,&#39;pura vida&#39;)">☕ Pura Vida</span>
+      <span class="sel-badge" onclick="bankFilter(this,&#39;velocidad&#39;)">⚡ Velocidad</span>
+      <span class="sel-badge" onclick="bankFilter(this,&#39;oferta&#39;)">💰 Oferta</span>
+    </div>
+  </div>
+  <div id="bank-grid" class="bank-grid"><div class="bank-empty" style="grid-column:1/-1">
+      <span class="bank-empty-icon">🗄</span>
+      El banco está vacío. Evaluá copies con score ≥60 y guardálos aquí para tener referencia.
+    </div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SCRIPTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+const PILLARS = [
+  { icon:'📍', name:'Cercanía', tagline:'"Estamos donde vos estás"',
+    points:['Múltiples puntos de renta en todo el país','Entrega y devolución a domicilio (hasta 10 km de una oficina)','Recogé o devolvé directo en el aeropuerto o tu hotel','Oficinas estratégicas a lo largo de Costa Rica'],
+    pill:'Diferenciador local', pillType:'pill-green' },
+  { icon:'🎁', name:'Beneficios Exclusivos', tagline:'"El Rent a Car de los Ticos tiene ventajas globales"',
+    points:['Florida: conductor adicional gratis, one-way gratis, upgrade gratis, siempre hay un descuento','Mundo: 10% de descuento para ticos, hasta 20% con registro en el sitio web','Amplia flota: sedanes, pickups, microbuses — para todo tipo de viaje'],
+    pill:'Alta conversión', pillType:'pill-red' },
+  { icon:'☕', name:'Servicio Pura Vida', tagline:'"Marca tica, trato tico"',
+    points:['Te recibimos con un café','Guía del país incluida para conocer Costa Rica','Modificá tu reservación sin complicaciones','Marca 100% costarricense con casi 40 años de trayectoria'],
+    pill:'Conexión emocional', pillType:'pill-amber' },
+  { icon:'⚡', name:'Velocidad', tagline:'"Tu tiempo vale"',
+    points:['Pre-registro / pre check-in antes de llegar a la oficina','Comunicación directa por WhatsApp','Proceso de alquiler ágil — sin filas, sin demoras'],
+    pill:'Elimina fricción', pillType:'pill-blue' },
+  { icon:'💰', name:'Oferta / Urgencia', tagline:'"La oferta correcta en el momento correcto"',
+    points:['Descuentos puntuales (Semana Santa, temporada alta, feriados)','Upgrade de vehículo gratis (sujeto a disponibilidad)','Horas extras gratis · Conductor(es) adicional gratis','Drop-offs flexibles y gratuitos entre oficinas'],
+    pill:'Activación directa', pillType:'pill-red' },
+];
+
+const SEASONS = [
+  { name:'Semana Santa / Pascua', dates:'Variable · Marzo o Abril · 1–2 semanas', color:'#E8001E',
+    badge:'s-high', badgeLabel:'Temporada Alta',
+    tags:['#SalidaDeViaje','#SemanaSanta','#TurismoNacional','#EconomyRac'],
+    content:`<strong>El momento de mayor demanda del año.</strong> Familias ticas que salen a playa, montaña y tours internos. La flota se agota — la urgencia es real y se puede comunicar honestamente.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Urgencia: "Quedan pocas unidades — reservá hoy"</li>
+    <li>Flota: pickups y microbuses para grupos grandes</li>
+    <li>Cercanía: recogé en el aeropuerto o te llevamos el carro</li>
+    <li>Servicio Pura Vida: guía del país incluida</li></ul><br>
+    <strong>Anticipación:</strong> Pautar 3–4 semanas antes del inicio.`,
+    ctas:['Reservar ahora','Verificar disponibilidad','WhatsApp → ya']
+  },
+  { name:'Temporada Alta Turismo Internacional', dates:'Diciembre – Febrero', color:'#E8001E',
+    badge:'s-high', badgeLabel:'Temporada Alta',
+    tags:['#CRTravel','#CostaRica','#RentACar','#Vacation'],
+    content:`<strong>Pico de turistas estadounidenses y europeos.</strong> Oportunidad de comunicar en inglés o bilingüe para capturar búsquedas desde el exterior. Alta competencia en búsquedas — diferenciarse en servicio, no en precio.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Recogida directa en Juan Santamaría</li>
+    <li>Pre-registro: llegás y el carro ya te espera</li>
+    <li>Flota variada: pickups para aventura</li>
+    <li>WhatsApp en español e inglés</li></ul>`,
+    ctas:['Reserve Now','Book Online','Get a Quote']
+  },
+  { name:'Viajes a Florida', dates:'Todo el año · Pico: Dic–Ene y Jul–Ago', color:'#6366F1',
+    badge:'s-blue', badgeLabel:'Segmento Exclusivo',
+    tags:['#ViajeAFlorida','#Miami','#DisneyWorld','#EconomyFlorida'],
+    content:`<strong>Segmento de alta intención de compra.</strong> Economy tiene beneficios exclusivos para ticos en Florida que la competencia no puede igualar — este es el diferenciador más poderoso de la marca.<br><br>
+    <strong>Hero message:</strong> "Conductor adicional + one-way + upgrade. Todo gratis en Florida."<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Listar los 3 beneficios de corrido — son el anuncio</li>
+    <li>Siempre hay un descuento disponible</li>
+    <li>Marca de confianza: 40 años, ticos como vos</li>
+    <li>Proceso fácil: reservás desde CR, recogés allá</li></ul>`,
+    ctas:['Ver oferta Florida','Reservar en Miami','Cotizar Orlando','WhatsApp']
+  },
+  { name:'Verano Escolar Costarricense', dates:'Noviembre–Diciembre (vacaciones) + Julio', color:'#F59E0B',
+    badge:'s-med', badgeLabel:'Temporada Media',
+    tags:['#VacacionesEscolares','#PlanesEnFamilia','#TurismoTico'],
+    content:`<strong>Familias con niños buscan planes de viaje.</strong> Tono cálido, familiar, accesible. Microbuses y vehículos grandes son el producto estrella en esta temporada.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Microbuses: "Que quepan todos"</li>
+    <li>Conductor adicional gratis — turnos en el camino</li>
+    <li>Flexibilidad: modificá tu reserva en cualquier momento</li>
+    <li>Pura Vida: café y guía incluidos</li></ul>`,
+    ctas:['Planear viaje','Ver flota familiar','Cotizar']
+  },
+  { name:'Feriados Largos y Puentes', dates:'11 Abr · 1 May · 15 Sep · otros', color:'#F59E0B',
+    badge:'s-med', badgeLabel:'Temporada Media',
+    tags:['#FeriadoLargo','#PuenteTico','#SeFinDeEscapar'],
+    content:`<strong>Ventanas cortas con alta intención de viaje de último momento.</strong> Menor competencia que Semana Santa pero urgencia real. El creativo debe comunicar disponibilidad y rapidez del proceso.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Urgencia + disponibilidad inmediata</li>
+    <li>Entrega a domicilio — salís rápido desde tu casa</li>
+    <li>WhatsApp: reservá en minutos</li>
+    <li>Upgrade si hay disponibilidad</li></ul>`,
+    ctas:['Reservar hoy','Disponibilidad limitada','WhatsApp ya']
+  },
+  { name:'Temporada Baja', dates:'Mayo–Junio · Agosto–Septiembre', color:'#555',
+    badge:'s-low', badgeLabel:'Temporada Baja',
+    tags:['#TemporadaBaja','#OfertaEspecial'],
+    content:`<strong>Momento para cultivar marca y capturar demanda latente.</strong> Menos competencia en pauta significa menor CPL — buena oportunidad para construir base de datos y retargeting.<br><br>
+    <strong>Ángulos de mensaje:</strong><ul>
+    <li>Descuentos especiales para reactivar interés</li>
+    <li>Contenido educativo: "¿Sabías que podés devolver en otra oficina?"</li>
+    <li>Registro en el sitio web: hasta 20% de descuento permanente</li>
+    <li>Construir base: retargeting y lookalikes para picos futuros</li></ul>`,
+    ctas:['Registrarse','Ver descuento','Conocer beneficios']
+  },
+];
+
+const KEYWORDS = [
+  { cat:'🔍 Alta intención · Costa Rica', items:[
+    { kw:'alquilar carro Costa Rica', intent:'Transaccional', vol:'h' },
+    { kw:'rent a car aeropuerto Juan Santamaría', intent:'Transaccional', vol:'h' },
+    { kw:'alquiler de carros baratos Costa Rica', intent:'Transaccional', vol:'h' },
+    { kw:'renta de vehículos San José', intent:'Transaccional', vol:'m' },
+    { kw:'alquiler pickup Costa Rica', intent:'Transaccional', vol:'m' },
+    { kw:'alquiler microbús Costa Rica', intent:'Transaccional', vol:'l' },
+  ]},
+  { cat:'✈️ Segmento Florida', items:[
+    { kw:'rent a car Florida ticos', intent:'Transaccional', vol:'m' },
+    { kw:'alquilar carro Miami desde Costa Rica', intent:'Transaccional', vol:'m' },
+    { kw:'one way car rental Florida', intent:'Transaccional', vol:'h' },
+    { kw:'Economy Rent a Car Florida', intent:'Navegacional', vol:'m' },
+    { kw:'alquiler carro Orlando', intent:'Transaccional', vol:'h' },
+  ]},
+  { cat:'📅 Estacionales / Urgencia', items:[
+    { kw:'alquilar carro Semana Santa', intent:'Estacional', vol:'h' },
+    { kw:'renta carro vacaciones escolares', intent:'Estacional', vol:'m' },
+    { kw:'alquiler vehículo diciembre Costa Rica', intent:'Estacional', vol:'m' },
+    { kw:'carro alquilado feriado Costa Rica', intent:'Estacional', vol:'l' },
+  ]},
+  { cat:'💬 Branding / Redes Sociales', items:[
+    { kw:'#ElRentaCarDeLosticos', intent:'Branding', vol:'m' },
+    { kw:'#EconomyRentaCar', intent:'Branding', vol:'m' },
+    { kw:'el rent a car de los ticos', intent:'Branding', vol:'m' },
+  ]},
+  { cat:'🆚 Comparativo / Decisión', items:[
+    { kw:'mejor rent a car Costa Rica', intent:'Comparativo', vol:'h' },
+    { kw:'rent a car confiable aeropuerto CR', intent:'Comparativo', vol:'m' },
+    { kw:'empresa alquiler 100% costarricense', intent:'Comparativo', vol:'l' },
+    { kw:'rent a car sin tarjeta de crédito CR', intent:'Comparativo', vol:'m' },
+  ]},
+];
+
+const INSIGHTS = [
+  { type:'Comportamiento de compra',
+    text:'El tico compara antes de reservar un rent a car. Economy tiene diferenciadores tangibles que otros no pueden igualar: marca propia, beneficios exclusivos en Florida, trato tico.',
+    use:'En copies de consideración: mostrar la diferencia explícitamente sin mencionar competidores. "Otros te cobran extra. En Economy, no."' },
+  { type:'Insight de servicio',
+    text:'La fricción más grande en el alquiler de carros es el proceso en mostrador: esperar, firmar papeles, cargos inesperados. Economy tiene el pre-registro como solución directa.',
+    use:'Ángulo: "Llegás y tu carro ya te está esperando. Sí, así de fácil." → CTA: Pre-registrarse.' },
+  { type:'Insight Florida',
+    text:'Miles de costarricenses viajan a Florida cada año. Es uno de los destinos #1 de la diáspora tica. Economy tiene beneficios exclusivos ahí — segmento poco explotado en pauta digital.',
+    use:'Campaña específica "Economy en Florida" con creatividades en español para la comunidad tica. Los 3 beneficios juntos son el copy.' },
+  { type:'Insight emocional',
+    text:'El eslogan "El Rent a Car de los Ticos" no es solo posicionamiento — es permiso de compra. Marca 100% tica con 40 años: el consumidor confía más que con una franquicia extranjera.',
+    use:'"Casi 40 años llevando ticos por el mundo." No necesita descuento — vende por orgullo.' },
+  { type:'Insight de precio',
+    text:'El consumidor busca "barato" pero compra por confianza y conveniencia. Comunicar precio bajo atrae leads de baja calidad. Comunicar valor atrae compradores.',
+    use:'Cambiar el ángulo: de "¡Precios bajos!" a "Tu viaje sin sorpresas. Conductor adicional gratis, upgrade incluido."' },
+  { type:'Insight de urgencia',
+    text:'La escasez en rent a car es real en temporada alta: Semana Santa y diciembre se agotan. Esta urgencia no se fabrica — se comunica y se respalda con datos.',
+    use:'"¡Quedan pocos días para Semana Santa! La flota se agota rápido — asegurá el tuyo." Funciona porque es verdad.' },
+  { type:'Insight digital',
+    text:'WhatsApp es el canal de comunicación preferido en Costa Rica para empresas. Reducir la fricción del proceso de cotización a un mensaje de WhatsApp multiplica las conversiones.',
+    use:'CTA principal en todo material: botón de WhatsApp directo. Evitar formularios largos como primer paso.' },
+];
+
+const BENCHMARKS = [
+  { score:'A+', type:'Facebook Feed · Urgencia estacional', platform:'fb_ig_feed',
+    copy:'"¿Ya tenés tu carro para Semana Santa? 🌴 Los últimos años se agotan rápido. Asegurá el tuyo hoy con Economy — te lo entregamos en el aeropuerto o en tu hotel.\n\n✅ Modificación de reserva gratis\n✅ Guía del país incluida\n\n→ Reservar ahora por WhatsApp"',
+    why:'<strong>¿Por qué funciona?</strong> Empieza con una pregunta que activa la duda en el lector. La urgencia ("se agotan rápido") es creíble porque es verdadera. Los bullets son beneficios, no atributos. El CTA es específico y tiene un canal claro.' },
+  { score:'A', type:'Google Search · Alta intención', platform:'google_search',
+    copy:'"Economy Rent a Car CR | Conductor Adicional Gratis | Reservá en 2 min por WhatsApp"',
+    why:'<strong>¿Por qué funciona?</strong> Para Search, el headline es todo. Menciona la marca (confianza), un beneficio gancho (conductor gratis), y elimina la fricción de proceso (2 min, WhatsApp). 87 caracteres — dentro del límite.' },
+  { score:'A', type:'Stories / Reels · Awareness Florida', platform:'stories_reels',
+    copy:'"¿Vas a Florida? En Economy tenés: conductor adicional gratis + one-way gratis + upgrade gratis. Solo por ser tico. 🇨🇷\n\n→ Deslizá para cotizar"',
+    why:'<strong>¿Por qué funciona?</strong> Para stories el copy va arriba, corto, con gancho directo. Listar los 3 beneficios de corrido es más poderoso que describir uno solo. "Solo por ser tico" activa el orgullo de identidad.' },
+  { score:'B+', type:'Facebook Feed · Marca / Pura Vida', platform:'fb_ig_feed',
+    copy:'"Casi 40 años llevando ticos por Costa Rica y el mundo. Porque aquí no solo alquilás un carro — te recibimos con café, te damos la guía del país y te acompañamos en cada kilómetro.\n\nEconomy. El Rent a Car de los Ticos. 🇨🇷\n\n→ Conocé nuestras sucursales"',
+    why:'<strong>¿Por qué funciona?</strong> Anuncio de marca sin descuento — vende por identidad. El "no solo alquilás un carro" contrasta con la expectativa y abre curiosidad. El CTA lleva a una acción de bajo compromiso (ver sucursales), correcto para awareness.' },
+  { score:'B+', type:'WhatsApp Broadcast · Temporada baja', platform:'whatsapp',
+    copy:'"Hola [nombre] 👋 Sabemos que aún no es Semana Santa, pero los mejores precios de Economy están disponibles ahora. Reservá hoy y asegurá tu carro con descuento.\n\n¿Cuándo vas a salir? Respondé este mensaje y te cotizamos."',
+    why:'<strong>¿Por qué funciona?</strong> El tono conversacional es correcto para WhatsApp — no es un anuncio, es un mensaje. La pregunta al final activa la respuesta (y el lead). "Los mejores precios están ahora" es urgencia sin mentir.' },
+];
+
+const BRIEF_RECS = {
+  'local-semana-santa-cercania': {
+    pillar:'📍 Cercanía',
+    recs:[
+      { cat:'Mensaje principal', text:'Enfocate en la comodidad del proceso: "Te entregamos el carro donde estés." La Semana Santa genera caos logístico — la entrega a domicilio o en el aeropuerto es el diferenciador real.' },
+      { cat:'CTA recomendado', text:'"Reservar ahora por WhatsApp" — el canal de menor fricción para ticos locales en temporada alta.' },
+      { cat:'Urgencia', text:'Añadí una razón de plazo: "Reservá antes del [fecha] y asegurá tu vehículo." La escasez en Semana Santa es real.' },
+    ]
+  },
+  'local-semana-santa-oferta': {
+    pillar:'💰 Oferta / Urgencia',
+    recs:[
+      { cat:'Mensaje principal', text:'"Quedan pocas unidades para Semana Santa." Listá 1-2 beneficios concretos (upgrade gratis, horas extras). El lector ya sabe que quiere un carro — necesita la razón para elegir Economy ahora.' },
+      { cat:'CTA recomendado', text:'"Ver disponibilidad" o "Reservar hoy" — directo, sin fricción.' },
+      { cat:'Formato sugerido', text:'Facebook/IG Feed con imagen de destino natural costarricense + texto de urgencia arriba del fold.' },
+    ]
+  },
+  'exterior-florida-beneficios': {
+    pillar:'🎁 Beneficios Exclusivos',
+    recs:[
+      { cat:'Mensaje principal', text:'Listá los 3 beneficios de Florida de corrido: "Conductor adicional gratis + one-way gratis + upgrade gratis." Son tan fuertes que el copy se escribe solo.' },
+      { cat:'Gancho de identidad', text:'Añadí "Solo por ser tico" o "Exclusivo para costarricenses" — activa el orgullo de pertenencia.' },
+      { cat:'Canal sugerido', text:'Stories/Reels con texto grande sobre video de Florida. Deslizá para cotizar → WhatsApp.' },
+    ]
+  },
+  'default': {
+    pillar:'General',
+    recs:[
+      { cat:'Enfocate en un solo beneficio', text:'El copy más efectivo en esta categoría habla de una cosa. Elegí el diferenciador más relevante para tu audiencia y llévalo hasta las últimas consecuencias.' },
+      { cat:'CTA siempre presente', text:'WhatsApp, Cotizar o Reservar. Sin CTA no hay lead. El CTA debe ser visible sin scroll.' },
+      { cat:'Urgencia cuando aplica', text:'Si hay una razón de plazo real (temporada, disponibilidad, oferta) — usala. Si no la hay, no la inventes.' },
+    ]
+  }
+};
+
+// ─── BRIEF STATE ─────────────────────────────────────────
+const brief = { audience:'', season:'', pillar:'' };
+
+function selectBrief(key, val, label) {
+  brief[key] = val;
+  const step = { audience:'bstep1', season:'bstep2', pillar:'bstep3' }[key];
+  document.querySelectorAll('#'+step+' .brief-opt').forEach(o=>o.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  const nextBtns = { audience:'b1-next', season:'b2-next', pillar:'b3-next' };
+  document.getElementById(nextBtns[key]).disabled = false;
+}
+
+function briefNext(step) {
+  document.querySelectorAll('.brief-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('bstep'+step).classList.add('active');
+  updateBriefProgress(step);
+}
+
+function briefBack(step) {
+  document.querySelectorAll('.brief-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('bstep'+step).classList.add('active');
+  updateBriefProgress(step);
+}
+
+function updateBriefProgress(step) {
+  for(let i=1;i<=3;i++) {
+    document.getElementById('bp'+i).style.background = i<step ? 'var(--red)' : (i===step ? 'rgba(232,0,30,.4)' : 'var(--border)');
+  }
+  document.getElementById('bp-label').textContent = 'Paso '+step+' de 3';
+}
+
+function showBriefResult() {
+  document.querySelectorAll('.brief-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('brief-result').classList.add('active');
+  for(let i=1;i<=3;i++) document.getElementById('bp'+i).style.background='var(--red)';
+  document.getElementById('bp-label').textContent='Listo';
+
+  const audienceLabels = { local:'🇨🇷 Tico local', exterior:'✈️ Tico en el exterior', turista:'🌍 Turista internacional', empresa:'🏢 Corporativo' };
+  const seasonLabels = { 'semana-santa':'🌴 Semana Santa', 'turismo-alto':'⭐ Temporada Alta Turismo', 'florida':'🌊 Viajes a Florida', 'verano-escolar':'🎒 Verano Escolar', 'feriado':'🗓 Feriado/Puente', 'general':'📌 Sin temporada' };
+  const pillarLabels = { 'cercania':'📍 Cercanía', 'beneficios':'🎁 Beneficios', 'pura-vida':'☕ Pura Vida', 'velocidad':'⚡ Velocidad', 'oferta':'💰 Oferta/Urgencia' };
+
+  document.getElementById('brief-tags-display').innerHTML = [
+    audienceLabels[brief.audience], seasonLabels[brief.season], pillarLabels[brief.pillar]
+  ].map(t=>`<span class="brief-tag">${t}</span>`).join('');
+
+  const key = `${brief.audience}-${brief.season}-${brief.pillar}`;
+  const rec = BRIEF_RECS[key] || BRIEF_RECS['default'];
+  document.getElementById('brief-recs-content').innerHTML = `
+    <div class="brief-recs"><strong>Pilar activo:</strong> ${rec.pillar}</div>
+    <div class="recs-grid">${rec.recs.map(r=>`<div class="rec-block"><div class="rec-cat">${r.cat}</div><div class="rec-text">${r.text}</div></div>`).join('')}</div>
+  `;
+
+  // Pre-fill evaluator
+  const seasonBadges = document.querySelectorAll('#season-sel-row .sel-badge');
+  seasonBadges.forEach(b=>b.classList.remove('on'));
+  const seasonMap = { 'semana-santa':'Semana Santa','florida':'Florida','turismo-alto':'Turismo alto','verano-escolar':'Verano Escolar','feriado':'Feriado','general':'Sin temporada' };
+  seasonBadges.forEach(b=>{ if(b.textContent.toLowerCase().includes(brief.season.replace('-',' '))) b.classList.add('on'); });
+}
+
+function resetBrief() {
+  brief.audience=''; brief.season=''; brief.pillar='';
+  document.getElementById('brief-result').classList.remove('active');
+  document.querySelectorAll('.brief-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('bstep1').classList.add('active');
+  ['b1-next','b2-next','b3-next'].forEach(id=>document.getElementById(id).disabled=true);
+  document.querySelectorAll('.brief-opt').forEach(o=>o.classList.remove('selected'));
+  updateBriefProgress(1);
+}
+
+function goToEvaluator() {
+  goTab('evaluador');
+}
+
+// ─── TAB SWITCHING ───────────────────────────────────────
+function goTab(id) {
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id+'-panel').classList.add('active');
+  const btns = document.querySelectorAll('.nav-btn');
+  btns.forEach(b=>{ if(b.textContent.toLowerCase().includes(id.toLowerCase().replace('-',' '))) b.classList.add('active'); });
+  // Special cases
+  const map = {'brief':0,'propuesta':1,'calendario':2,'keywords':3,'insights':4,'benchmarks':5,'evaluador':6,'banco':7};
+  if(map[id]!==undefined) btns[map[id]].classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ─── BUILD CONTENT ───────────────────────────────────────
+function buildPillars() {
+  const g = document.getElementById('pillar-grid');
+  PILLARS.forEach(p=>{
+    g.innerHTML += `<div class="pillar-card">
+      <div class="pillar-icon">${p.icon}</div>
+      <div class="pillar-name">${p.name}</div>
+      <div class="pillar-tagline">${p.tagline}</div>
+      <ul class="pillar-pts">${p.points.map(pt=>`<li>${pt}</li>`).join('')}</ul>
+      <span class="pill ${p.pillType}">${p.pill}</span>
+    </div>`;
+  });
+}
+
+function buildTimeline() {
+  const c = document.getElementById('timeline-container');
+  SEASONS.forEach(s=>{
+    c.innerHTML += `<div class="season-row" onclick="toggleSeason(this)">
+      <div class="season-header">
+        <div class="season-dot" style="background:${s.color}"></div>
+        <div class="season-info">
+          <div class="season-name">${s.name}</div>
+          <div class="season-dates">${s.dates}</div>
+        </div>
+        <div class="s-badge ${s.badge}">${s.badgeLabel}</div>
+      </div>
+      <div class="season-body">
+        <div class="stags">${s.tags.map(t=>`<span class="stag">${t}</span>`).join('')}</div>
+        <div class="season-content">${s.content}</div>
+        <div class="ctas-row">${s.ctas.map(c=>`<span class="cta-chip">${c}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  });
+}
+
+function toggleSeason(el) { el.classList.toggle('open'); }
+
+function buildKeywords() {
+  const c = document.getElementById('kw-container');
+  const volLabel = { h:'Alto volumen', m:'Medio', l:'Nicho' };
+  const volCls = { h:'vol-h', m:'vol-m', l:'vol-l' };
+  KEYWORDS.forEach(cat=>{
+    c.innerHTML += `<div class="kw-section-title">${cat.cat}</div>
+    <div class="grid-3">${cat.items.map(k=>`
+      <div class="kw-card">
+        <div class="kw-main">${k.kw}</div>
+        <div class="kw-intent">${k.intent}</div>
+        <span class="vol-tag ${volCls[k.vol]}">${volLabel[k.vol]}</span>
+      </div>`).join('')}
+    </div>`;
+  });
+}
+
+function buildInsights() {
+  const c = document.getElementById('insights-container');
+  INSIGHTS.forEach(i=>{
+    c.innerHTML += `<div class="insight-card">
+      <div class="insight-type">${i.type}</div>
+      <div class="insight-text">${i.text}</div>
+      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> ${i.use}</div>
+    </div>`;
+  });
+}
+
+function buildBenchmarks() {
+  const c = document.getElementById('benchmarks-container');
+  BENCHMARKS.forEach(b=>{
+    c.innerHTML += `<div class="bench-card">
+      <div class="bench-header">
+        <div class="bench-score">${b.score}</div>
+        <div class="bench-meta">
+          <div class="bench-title">${b.type}</div>
+          <div class="bench-type">${b.platform}</div>
+        </div>
+      </div>
+      <div class="bench-copy">${b.copy.replace(/\n/g,'<br>')}</div>
+      <div class="bench-why">${b.why}</div>
+    </div>`;
+  });
+}
+
+function buildSeasonBadges() {
+  const row = document.getElementById('season-sel-row');
+  const seasons = ['Semana Santa','Florida','Turismo alto','Verano Escolar','Feriado','Sin temporada'];
+  seasons.forEach(s=>{
+    row.innerHTML += `<span class="sel-badge" onclick="toggleBadge(this,'season')">${s}</span>`;
+  });
+}
+
+// ─── BADGE TOGGLES ───────────────────────────────────────
+function toggleBadge(el, group) {
+  const siblings = el.parentElement.querySelectorAll('.sel-badge');
+  if(group==='season'||group==='aud') {
+    siblings.forEach(s=>s.classList.remove('on'));
+    el.classList.toggle('on');
+  } else {
+    el.classList.toggle('on');
+  }
+}
+
+// ─── CHAR COUNT ──────────────────────────────────────────
+function updateCharCount() {
+  const len = document.getElementById('copy-input').value.length;
+  document.getElementById('char-meta').textContent = `${len} caracteres · FB ideal ≤125 headline · Google ≤30`;
+}
+
+// ─── EVALUATOR ───────────────────────────────────────────
+async function runEval() {
+  const copyText = document.getElementById('copy-input').value.trim();
+  if(!copyText) { alert('Ingresá el texto del anuncio.'); return; }
+
+  const format = document.getElementById('fmt-sel').value;
+  const seasons = [...document.querySelectorAll('#season-sel-row .sel-badge.on')].map(b=>b.textContent).join(', ');
+  const pillars = [...document.querySelectorAll('#evaluador-panel .badge-row .sel-badge.on')].filter(b=>!b.closest('#season-sel-row')).map(b=>b.textContent);
+  const aud = [...document.querySelectorAll('#evaluador-panel .badge-row .sel-badge.on')].filter(b=>b.textContent.includes('🇨🇷')||b.textContent.includes('✈️')||b.textContent.includes('🌍')||b.textContent.includes('🏢')).map(b=>b.textContent).join(', ');
+
+  const btn = document.getElementById('eval-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Analizando...';
+
+  document.getElementById('eval-results').innerHTML = `<div class="score-card"><div class="placeholder"><span class="placeholder-icon" style="opacity:1">⏳</span>Evaluando tu copy...</div></div>`;
+
+  const sys = `Sos un experto en copywriting para publicidad digital de rent a car. Evaluás copies para Economy Rent a Car de Costa Rica.
+
+Propuesta de valor de Economy:
+1. CERCANÍA: Puntos en todo CR, entrega/devolución a domicilio, recogida en aeropuerto u hotel.
+2. BENEFICIOS EXCLUSIVOS: Florida (conductor adicional gratis, one-way gratis, upgrade gratis, siempre hay descuento). Mundo: 10% para ticos, 20% con registro web.
+3. SERVICIO PURA VIDA: Café de bienvenida, guía del país, reservación flexible, marca 100% tica ~40 años.
+4. VELOCIDAD: Pre-registro/pre check-in, WhatsApp, sin filas.
+5. OFERTA/URGENCIA: Descuentos, upgrades, horas extras gratis, conductores gratis, drop-offs flexibles.
+
+Benchmarks de la categoría rent a car:
+- Un anuncio efectivo tiene: gancho en la primera línea, UN beneficio principal claro, urgencia o razón para actuar ahora, CTA explícito (WhatsApp/Reservar/Cotizar).
+- El copy de alta conversión en rent a car NO compite en precio puro — comunica valor: "sin sorpresas", "conductor gratis", "upgrade incluido".
+- Para Florida el diferenciador más poderoso es listar los 3 beneficios de corrido.
+- WhatsApp debe ser el CTA preferido para audiencias ticas.
+
+MANDATO: Cada mensaje debe responder "¿Por qué alguien NOS debe escoger?" y anclar en UN pilar.
+
+Evaluá en 5 dimensiones (0–20 pts c/u):
+1. CLARIDAD DEL CTA: ¿Es obvio qué debe hacer el usuario?
+2. PROPUESTA DE VALOR: ¿Comunica un beneficio claro y diferenciador de Economy?
+3. COHERENCIA ESTACIONAL: ¿Responde a un contexto/temporada válido?
+4. URGENCIA / MOTIVACIÓN: ¿Hay razón para actuar ahora?
+5. ALINEACIÓN CON MARCA: ¿Voz y tono corresponden a Economy (cercana, tica, confiable)?
+
+IMPORTANTE: SIEMPRE generá una versión mejorada del copy. Si el score es alto, mejorá detalles menores. Si es bajo, reescribí completamente manteniendo la intención.
+
+Respondé ÚNICAMENTE en JSON válido, sin texto adicional, sin backticks:
+{
+  "score_total": <0-100>,
+  "grade": "<Excelente|Bueno|Aceptable|Necesita trabajo|Rechazar>",
+  "dimensions": { "cta":<0-20>, "valor":<0-20>, "estacional":<0-20>, "urgencia":<0-20>, "marca":<0-20> },
+  "feedback": [
+    {"icon":"✅","text":"..."},
+    {"icon":"✅","text":"..."},
+    {"icon":"⚠️","text":"..."},
+    {"icon":"❌","text":"..."}
+  ],
+  "rewrite": "<versión mejorada del copy — siempre presente, máximo 4 líneas>",
+  "rewrite_reason": "<una línea explicando los cambios principales>"
+}`;
+
+  const msg = `Copy a evaluar:\n"${copyText}"\n\nFormato: ${format||'No especificado'}\nTemporada: ${seasons||'No especificada'}\nPilar(es): ${pillars.join(', ')||'No especificado'}\nAudiencia: ${aud||'No especificada'}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:1000, messages:[{role:'user',content:sys+'\n\n'+msg}] })
+    });
+    const data = await res.json();
+    const raw = data.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+    const r = JSON.parse(raw);
+    renderEvalResults(r, copyText);
+  } catch(e) {
+    document.getElementById('eval-results').innerHTML = `<div class="score-card"><div class="placeholder"><span class="placeholder-icon">⚠️</span>Error al evaluar. Intentá de nuevo.</div></div>`;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Evaluar copy';
+}
+
+function renderEvalResults(r, originalCopy) {
+  const sc = r.score_total;
+  const col = sc>=80?'var(--green)':sc>=55?'var(--amber)':'#EF4444';
+  const bc = v => v>=16?'var(--green)':v>=10?'var(--amber)':'#EF4444';
+  const dims = [
+    {l:'CTA',v:r.dimensions.cta},{l:'Propuesta de Valor',v:r.dimensions.valor},
+    {l:'Coherencia Estacional',v:r.dimensions.estacional},{l:'Urgencia',v:r.dimensions.urgencia},
+    {l:'Alineación Marca',v:r.dimensions.marca}
+  ];
+  document.getElementById('eval-results').innerHTML = `
+    <div class="score-card">
+      <div class="score-top">
+        <div class="score-number" style="color:${col}">${sc}</div>
+        <div class="score-right">
+          <div class="score-grade" style="color:${col}">${r.grade}</div>
+          <div class="score-of">de 100 puntos</div>
+        </div>
+      </div>
+      <div class="score-bars">
+        ${dims.map(d=>`<div class="bar-row">
+          <div class="bar-lbl"><span>${d.l}</span><span>${d.v}/20</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.v/20)*100}%;background:${bc(d.v)}"></div></div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="feedback-card">
+      <div class="fb-title">Retroalimentación</div>
+      ${r.feedback.map(f=>`<div class="fb-item"><span class="fb-icon">${f.icon}</span><span>${f.text}</span></div>`).join('')}
+      <div class="rewrite-box">
+        <div class="rewrite-label">Versión mejorada</div>
+        <div class="rewrite-text" id="rewrite-text">${r.rewrite.replace(/\n/g,'<br>')}</div>
+        ${r.rewrite_reason?`<div style="font-size:10px;color:var(--text-dim);margin-top:8px;font-style:normal;">↑ ${r.rewrite_reason}</div>`:''}
+        <button class="copy-btn" onclick="copyRewrite()">Copiar versión mejorada</button>
+        ${sc>=60?`<button class="save-btn" onclick="saveToBank('${encodeURIComponent(r.rewrite)}',${sc})">Guardar en banco de copies ✓</button>`:''}
+      </div>
+    </div>`;
+}
+
+function copyRewrite() {
+  const txt = document.getElementById('rewrite-text').innerText;
+  navigator.clipboard.writeText(txt).then(()=>{
+    const btn = event.currentTarget;
+    btn.textContent='¡Copiado!';
+    setTimeout(()=>btn.textContent='Copiar versión mejorada',2000);
+  });
+}
+
+function saveToBank(encodedCopy, score) {
+  const copyText = decodeURIComponent(encodedCopy);
+  const pillars = [...document.querySelectorAll('#evaluador-panel .badge-row .sel-badge.on')].filter(b=>!b.closest('#season-sel-row')&&!['🇨🇷','✈️','🌍','🏢'].some(e=>b.textContent.includes(e))).map(b=>b.textContent);
+  const season = [...document.querySelectorAll('#season-sel-row .sel-badge.on')].map(b=>b.textContent).join(', ')||'Sin temporada';
+  const fmt = document.getElementById('fmt-sel').value||'No especificado';
+  const entry = { id:Date.now(), copy:copyText, score, pillars, season, format:fmt, date:new Date().toLocaleDateString('es-CR') };
+  const bank = JSON.parse(localStorage.getItem('economy_copy_bank')||'[]');
+  bank.unshift(entry);
+  localStorage.setItem('economy_copy_bank', JSON.stringify(bank));
+  const btn = event.currentTarget;
+  btn.textContent='✓ Guardado en el banco';
+  btn.style.background='rgba(34,197,94,.25)';
+  setTimeout(()=>{ btn.textContent='Guardar en banco de copies ✓'; btn.style.background=''; },3000);
+}
+
+// ─── BANK ─────────────────────────────────────────────────
+let bankFilter_active = 'all';
+
+function bankFilter(el, filter) {
+  bankFilter_active = filter;
+  document.querySelectorAll('#bank-filter-row .sel-badge').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  renderBank();
+}
+
+function renderBank() {
+  const bank = JSON.parse(localStorage.getItem('economy_copy_bank')||'[]');
+  const search = document.getElementById('bank-search').value.toLowerCase();
+  const grid = document.getElementById('bank-grid');
+  let filtered = bank.filter(e=>{
+    const matchSearch = !search || e.copy.toLowerCase().includes(search) || (e.pillars&&e.pillars.join('').toLowerCase().includes(search));
+    const matchFilter = bankFilter_active==='all' || (e.pillars&&e.pillars.join('').toLowerCase().includes(bankFilter_active));
+    return matchSearch && matchFilter;
+  });
+  if(filtered.length===0) {
+    grid.innerHTML = `<div class="bank-empty" style="grid-column:1/-1">
+      <span class="bank-empty-icon">🗄</span>
+      ${bank.length===0?'El banco está vacío. Evaluá copies con score ≥60 y guardálos aquí para tener referencia.':'No hay copies que coincidan con el filtro.'}
+    </div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(e=>`
+    <div class="bank-card">
+      <div class="bank-card-top">
+        <div class="bank-score-badge">${e.score}</div>
+        <div class="bank-date">${e.date}</div>
+      </div>
+      <div class="bank-copy-text">${e.copy.replace(/\n/g,'<br>')}</div>
+      <div class="bank-meta-row">
+        ${(e.pillars||[]).map(p=>`<span class="pill pill-red" style="margin:0">${p}</span>`).join('')}
+        <span class="pill pill-gray" style="margin:0">${e.season}</span>
+        <span class="pill pill-gray" style="margin:0">${e.format}</span>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(decodeURIComponent('${encodeURIComponent(e.copy)}'));this.textContent='¡Copiado!';setTimeout(()=>this.textContent='Copiar copy',2000)">Copiar copy</button>
+      <button class="bank-del" title="Eliminar" onclick="deleteBankEntry(${e.id})">×</button>
+    </div>`).join('');
+}
+
+function deleteBankEntry(id) {
+  let bank = JSON.parse(localStorage.getItem('economy_copy_bank')||'[]');
+  bank = bank.filter(e=>e.id!==id);
+  localStorage.setItem('economy_copy_bank', JSON.stringify(bank));
+  renderBank();
+}
+
+// ─── INIT ─────────────────────────────────────────────────
+buildPillars();
+buildTimeline();
+buildKeywords();
+buildInsights();
+buildBenchmarks();
+buildSeasonBadges();
+renderBank();
+updateBriefProgress(1);
+</script>
+
+
+</body></html>
