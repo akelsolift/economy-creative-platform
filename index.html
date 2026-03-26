@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0070)file:///Users/andrekelso/Downloads/economy-creative-platform-v2_7.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Economy RAC — Plataforma Creativa v2</title>
-<link href="./Economy RAC — Plataforma Creativa v2_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
   --red: #E8001E;
@@ -311,14 +311,14 @@ select option{background:var(--surface2);}
 
 <!-- NAV -->
 <nav id="nav">
-  <button class="nav-btn active" onclick="goTab(&#39;brief&#39;)">🗂 Brief de Campaña</button>
-  <button class="nav-btn" onclick="goTab(&#39;propuesta&#39;)">🏛 Propuesta de Valor</button>
-  <button class="nav-btn" onclick="goTab(&#39;calendario&#39;)">📅 Calendario Estacional</button>
-  <button class="nav-btn" onclick="goTab(&#39;keywords&#39;)">🔍 Keywords</button>
-  <button class="nav-btn" onclick="goTab(&#39;insights&#39;)">💡 Insights</button>
-  <button class="nav-btn" onclick="goTab(&#39;benchmarks&#39;)">📊 Benchmarks</button>
-  <button class="nav-btn" onclick="goTab(&#39;evaluador&#39;)">⚡ Evaluador de Copy</button>
-  <button class="nav-btn" onclick="goTab(&#39;banco&#39;)">🗄 Banco de Copies</button>
+  <button class="nav-btn active" onclick="goTab('brief')">🗂 Brief de Campaña</button>
+  <button class="nav-btn" onclick="goTab('propuesta')">🏛 Propuesta de Valor</button>
+  <button class="nav-btn" onclick="goTab('calendario')">📅 Calendario Estacional</button>
+  <button class="nav-btn" onclick="goTab('keywords')">🔍 Keywords</button>
+  <button class="nav-btn" onclick="goTab('insights')">💡 Insights</button>
+  <button class="nav-btn" onclick="goTab('benchmarks')">📊 Benchmarks</button>
+  <button class="nav-btn" onclick="goTab('evaluador')">⚡ Evaluador de Copy</button>
+  <button class="nav-btn" onclick="goTab('banco')">🗄 Banco de Copies</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -334,9 +334,9 @@ select option{background:var(--surface2);}
 
   <!-- Progress bar -->
   <div class="brief-progress">
-    <div class="bp-step" id="bp1" style="background: rgba(232, 0, 30, 0.4);"></div>
-    <div class="bp-step" id="bp2" style="background: var(--border);"></div>
-    <div class="bp-step" id="bp3" style="background: var(--border);"></div>
+    <div class="bp-step" id="bp1"></div>
+    <div class="bp-step" id="bp2"></div>
+    <div class="bp-step" id="bp3"></div>
     <div class="bp-label" id="bp-label">Paso 1 de 3</div>
   </div>
 
@@ -345,29 +345,29 @@ select option{background:var(--surface2);}
     <div class="brief-question">¿A quién va dirigido el anuncio?</div>
     <div class="brief-sub">La audiencia define el tono, el beneficio principal y el canal óptimo.</div>
     <div class="brief-options">
-      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;local&#39;,&#39;🇨🇷 Tico local&#39;)">
+      <div class="brief-opt" onclick="selectBrief('audience','local','🇨🇷 Tico local')">
         <span class="brief-opt-icon">🇨🇷</span>
         <div class="brief-opt-label">Tico local</div>
         <div class="brief-opt-desc">Costa Rica, usa el carro para moverse por el país</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;exterior&#39;,&#39;✈️ Tico en el exterior&#39;)">
+      <div class="brief-opt" onclick="selectBrief('audience','exterior','✈️ Tico en el exterior')">
         <span class="brief-opt-icon">✈️</span>
         <div class="brief-opt-label">Tico en el exterior</div>
         <div class="brief-opt-desc">Viaja a Florida u otro destino desde CR</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;turista&#39;,&#39;🌍 Turista internacional&#39;)">
+      <div class="brief-opt" onclick="selectBrief('audience','turista','🌍 Turista internacional')">
         <span class="brief-opt-icon">🌍</span>
         <div class="brief-opt-label">Turista internacional</div>
         <div class="brief-opt-desc">Llega a CR y necesita movilidad local</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;audience&#39;,&#39;empresa&#39;,&#39;🏢 Empresa / corporativo&#39;)">
+      <div class="brief-opt" onclick="selectBrief('audience','empresa','🏢 Empresa / corporativo')">
         <span class="brief-opt-icon">🏢</span>
         <div class="brief-opt-label">Empresa / corporativo</div>
         <div class="brief-opt-desc">Flota temporal, viajero de negocios</div>
       </div>
     </div>
     <div class="brief-nav">
-      <button class="btn-primary" id="b1-next" onclick="briefNext(2)" disabled="">Siguiente →</button>
+      <button class="btn-primary" id="b1-next" onclick="briefNext(2)" disabled>Siguiente →</button>
     </div>
   </div>
 
@@ -376,32 +376,32 @@ select option{background:var(--surface2);}
     <div class="brief-question">¿A qué temporada responde?</div>
     <div class="brief-sub">El contexto estacional define la urgencia, los beneficios a destacar y el tono emocional del mensaje.</div>
     <div class="brief-options">
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;semana-santa&#39;,&#39;🌴 Semana Santa&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','semana-santa','🌴 Semana Santa')">
         <span class="brief-opt-icon">🌴</span>
         <div class="brief-opt-label">Semana Santa</div>
         <div class="brief-opt-desc">Marzo–Abril · Máxima demanda interna</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;turismo-alto&#39;,&#39;⭐ Temporada turismo alta&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','turismo-alto','⭐ Temporada turismo alta')">
         <span class="brief-opt-icon">⭐</span>
         <div class="brief-opt-label">Temporada Alta Turismo</div>
         <div class="brief-opt-desc">Diciembre–Febrero · Turistas internacionales</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;florida&#39;,&#39;🌊 Viajes a Florida&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','florida','🌊 Viajes a Florida')">
         <span class="brief-opt-icon">🌊</span>
         <div class="brief-opt-label">Viajes a Florida</div>
         <div class="brief-opt-desc">Dic–Ene / Jul–Ago · Ticos en EE.UU.</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;verano-escolar&#39;,&#39;🎒 Verano Escolar&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','verano-escolar','🎒 Verano Escolar')">
         <span class="brief-opt-icon">🎒</span>
         <div class="brief-opt-label">Verano Escolar</div>
         <div class="brief-opt-desc">Nov–Dic + Julio · Familias con niños</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;feriado&#39;,&#39;🗓 Feriado / Puente&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','feriado','🗓 Feriado / Puente')">
         <span class="brief-opt-icon">🗓</span>
         <div class="brief-opt-label">Feriado / Puente</div>
         <div class="brief-opt-desc">Abr, May, Sep · Escape corto, urgente</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;season&#39;,&#39;general&#39;,&#39;📌 Sin temporada específica&#39;)">
+      <div class="brief-opt" onclick="selectBrief('season','general','📌 Sin temporada específica')">
         <span class="brief-opt-icon">📌</span>
         <div class="brief-opt-label">Sin temporada</div>
         <div class="brief-opt-desc">Marca general, awareness, captación</div>
@@ -409,7 +409,7 @@ select option{background:var(--surface2);}
     </div>
     <div class="brief-nav">
       <button class="btn-secondary" onclick="briefBack(1)">← Atrás</button>
-      <button class="btn-primary" id="b2-next" onclick="briefNext(3)" disabled="">Siguiente →</button>
+      <button class="btn-primary" id="b2-next" onclick="briefNext(3)" disabled>Siguiente →</button>
     </div>
   </div>
 
@@ -418,27 +418,27 @@ select option{background:var(--surface2);}
     <div class="brief-question">¿Cuál es el pilar principal del mensaje?</div>
     <div class="brief-sub">Cada anuncio debe anclarse en UN pilar. Si se te ocurren dos, hacés dos creatividades.</div>
     <div class="brief-options">
-      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;cercania&#39;,&#39;📍 Cercanía&#39;)">
+      <div class="brief-opt" onclick="selectBrief('pillar','cercania','📍 Cercanía')">
         <span class="brief-opt-icon">📍</span>
         <div class="brief-opt-label">Cercanía</div>
         <div class="brief-opt-desc">Ubicaciones, delivery, aeropuerto, hotel</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;beneficios&#39;,&#39;🎁 Beneficios Exclusivos&#39;)">
+      <div class="brief-opt" onclick="selectBrief('pillar','beneficios','🎁 Beneficios Exclusivos')">
         <span class="brief-opt-icon">🎁</span>
         <div class="brief-opt-label">Beneficios Exclusivos</div>
         <div class="brief-opt-desc">Florida, descuentos, conductor gratis</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;pura-vida&#39;,&#39;☕ Servicio Pura Vida&#39;)">
+      <div class="brief-opt" onclick="selectBrief('pillar','pura-vida','☕ Servicio Pura Vida')">
         <span class="brief-opt-icon">☕</span>
         <div class="brief-opt-label">Servicio Pura Vida</div>
         <div class="brief-opt-desc">Marca tica, trato, 40 años, café</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;velocidad&#39;,&#39;⚡ Velocidad&#39;)">
+      <div class="brief-opt" onclick="selectBrief('pillar','velocidad','⚡ Velocidad')">
         <span class="brief-opt-icon">⚡</span>
         <div class="brief-opt-label">Velocidad</div>
         <div class="brief-opt-desc">Pre-registro, WhatsApp, sin esperas</div>
       </div>
-      <div class="brief-opt" onclick="selectBrief(&#39;pillar&#39;,&#39;oferta&#39;,&#39;💰 Oferta / Urgencia&#39;)">
+      <div class="brief-opt" onclick="selectBrief('pillar','oferta','💰 Oferta / Urgencia')">
         <span class="brief-opt-icon">💰</span>
         <div class="brief-opt-label">Oferta / Urgencia</div>
         <div class="brief-opt-desc">Descuento activo, pocas unidades, deadline</div>
@@ -446,7 +446,7 @@ select option{background:var(--surface2);}
     </div>
     <div class="brief-nav">
       <button class="btn-secondary" onclick="briefBack(2)">← Atrás</button>
-      <button class="btn-primary" id="b3-next" onclick="showBriefResult()" disabled="">Ver recomendaciones →</button>
+      <button class="btn-primary" id="b3-next" onclick="showBriefResult()" disabled>Ver recomendaciones →</button>
     </div>
   </div>
 
@@ -476,39 +476,9 @@ select option{background:var(--surface2);}
   </div>
   <div class="mandate">
     <div class="mandate-label">Mandato de comunicación</div>
-    <div class="mandate-text">Cada mensaje cae dentro de UN pilar — no necesita cubrirlos todos.<br>Claridad &gt; completitud.</div>
+    <div class="mandate-text">Cada mensaje cae dentro de UN pilar — no necesita cubrirlos todos.<br>Claridad > completitud.</div>
   </div>
-  <div class="pillar-grid" id="pillar-grid"><div class="pillar-card">
-      <div class="pillar-icon">📍</div>
-      <div class="pillar-name">Cercanía</div>
-      <div class="pillar-tagline">"Estamos donde vos estás"</div>
-      <ul class="pillar-pts"><li>Múltiples puntos de renta en todo el país</li><li>Entrega y devolución a domicilio (hasta 10 km de una oficina)</li><li>Recogé o devolvé directo en el aeropuerto o tu hotel</li><li>Oficinas estratégicas a lo largo de Costa Rica</li></ul>
-      <span class="pill pill-green">Diferenciador local</span>
-    </div><div class="pillar-card">
-      <div class="pillar-icon">🎁</div>
-      <div class="pillar-name">Beneficios Exclusivos</div>
-      <div class="pillar-tagline">"El Rent a Car de los Ticos tiene ventajas globales"</div>
-      <ul class="pillar-pts"><li>Florida: conductor adicional gratis, one-way gratis, upgrade gratis, siempre hay un descuento</li><li>Mundo: 10% de descuento para ticos, hasta 20% con registro en el sitio web</li><li>Amplia flota: sedanes, pickups, microbuses — para todo tipo de viaje</li></ul>
-      <span class="pill pill-red">Alta conversión</span>
-    </div><div class="pillar-card">
-      <div class="pillar-icon">☕</div>
-      <div class="pillar-name">Servicio Pura Vida</div>
-      <div class="pillar-tagline">"Marca tica, trato tico"</div>
-      <ul class="pillar-pts"><li>Te recibimos con un café</li><li>Guía del país incluida para conocer Costa Rica</li><li>Modificá tu reservación sin complicaciones</li><li>Marca 100% costarricense con casi 40 años de trayectoria</li></ul>
-      <span class="pill pill-amber">Conexión emocional</span>
-    </div><div class="pillar-card">
-      <div class="pillar-icon">⚡</div>
-      <div class="pillar-name">Velocidad</div>
-      <div class="pillar-tagline">"Tu tiempo vale"</div>
-      <ul class="pillar-pts"><li>Pre-registro / pre check-in antes de llegar a la oficina</li><li>Comunicación directa por WhatsApp</li><li>Proceso de alquiler ágil — sin filas, sin demoras</li></ul>
-      <span class="pill pill-blue">Elimina fricción</span>
-    </div><div class="pillar-card">
-      <div class="pillar-icon">💰</div>
-      <div class="pillar-name">Oferta / Urgencia</div>
-      <div class="pillar-tagline">"La oferta correcta en el momento correcto"</div>
-      <ul class="pillar-pts"><li>Descuentos puntuales (Semana Santa, temporada alta, feriados)</li><li>Upgrade de vehículo gratis (sujeto a disponibilidad)</li><li>Horas extras gratis · Conductor(es) adicional gratis</li><li>Drop-offs flexibles y gratuitos entre oficinas</li></ul>
-      <span class="pill pill-red">Activación directa</span>
-    </div></div>
+  <div class="pillar-grid" id="pillar-grid"></div>
   <div class="divider"></div>
   <div class="section-head">
     <div class="eyebrow">Anti-patrones</div>
@@ -543,123 +513,7 @@ select option{background:var(--surface2);}
     <div class="section-title">Calendario Estacional</div>
     <div class="section-sub">Clic en cada temporada para ángulos de mensaje, hashtags y CTAs recomendados. Recordá anticipar la pauta 3–4 semanas antes del pico.</div>
   </div>
-  <div id="timeline-container"><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#E8001E"></div>
-        <div class="season-info">
-          <div class="season-name">Semana Santa / Pascua</div>
-          <div class="season-dates">Variable · Marzo o Abril · 1–2 semanas</div>
-        </div>
-        <div class="s-badge s-high">Temporada Alta</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#SalidaDeViaje</span><span class="stag">#SemanaSanta</span><span class="stag">#TurismoNacional</span><span class="stag">#EconomyRac</span></div>
-        <div class="season-content"><strong>El momento de mayor demanda del año.</strong> Familias ticas que salen a playa, montaña y tours internos. La flota se agota — la urgencia es real y se puede comunicar honestamente.<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Urgencia: "Quedan pocas unidades — reservá hoy"</li>
-    <li>Flota: pickups y microbuses para grupos grandes</li>
-    <li>Cercanía: recogé en el aeropuerto o te llevamos el carro</li>
-    <li>Servicio Pura Vida: guía del país incluida</li></ul><br>
-    <strong>Anticipación:</strong> Pautar 3–4 semanas antes del inicio.</div>
-        <div class="ctas-row"><span class="cta-chip">Reservar ahora</span><span class="cta-chip">Verificar disponibilidad</span><span class="cta-chip">WhatsApp → ya</span></div>
-      </div>
-    </div><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#E8001E"></div>
-        <div class="season-info">
-          <div class="season-name">Temporada Alta Turismo Internacional</div>
-          <div class="season-dates">Diciembre – Febrero</div>
-        </div>
-        <div class="s-badge s-high">Temporada Alta</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#CRTravel</span><span class="stag">#CostaRica</span><span class="stag">#RentACar</span><span class="stag">#Vacation</span></div>
-        <div class="season-content"><strong>Pico de turistas estadounidenses y europeos.</strong> Oportunidad de comunicar en inglés o bilingüe para capturar búsquedas desde el exterior. Alta competencia en búsquedas — diferenciarse en servicio, no en precio.<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Recogida directa en Juan Santamaría</li>
-    <li>Pre-registro: llegás y el carro ya te espera</li>
-    <li>Flota variada: pickups para aventura</li>
-    <li>WhatsApp en español e inglés</li></ul></div>
-        <div class="ctas-row"><span class="cta-chip">Reserve Now</span><span class="cta-chip">Book Online</span><span class="cta-chip">Get a Quote</span></div>
-      </div>
-    </div><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#6366F1"></div>
-        <div class="season-info">
-          <div class="season-name">Viajes a Florida</div>
-          <div class="season-dates">Todo el año · Pico: Dic–Ene y Jul–Ago</div>
-        </div>
-        <div class="s-badge s-blue">Segmento Exclusivo</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#ViajeAFlorida</span><span class="stag">#Miami</span><span class="stag">#DisneyWorld</span><span class="stag">#EconomyFlorida</span></div>
-        <div class="season-content"><strong>Segmento de alta intención de compra.</strong> Economy tiene beneficios exclusivos para ticos en Florida que la competencia no puede igualar — este es el diferenciador más poderoso de la marca.<br><br>
-    <strong>Hero message:</strong> "Conductor adicional + one-way + upgrade. Todo gratis en Florida."<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Listar los 3 beneficios de corrido — son el anuncio</li>
-    <li>Siempre hay un descuento disponible</li>
-    <li>Marca de confianza: 40 años, ticos como vos</li>
-    <li>Proceso fácil: reservás desde CR, recogés allá</li></ul></div>
-        <div class="ctas-row"><span class="cta-chip">Ver oferta Florida</span><span class="cta-chip">Reservar en Miami</span><span class="cta-chip">Cotizar Orlando</span><span class="cta-chip">WhatsApp</span></div>
-      </div>
-    </div><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#F59E0B"></div>
-        <div class="season-info">
-          <div class="season-name">Verano Escolar Costarricense</div>
-          <div class="season-dates">Noviembre–Diciembre (vacaciones) + Julio</div>
-        </div>
-        <div class="s-badge s-med">Temporada Media</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#VacacionesEscolares</span><span class="stag">#PlanesEnFamilia</span><span class="stag">#TurismoTico</span></div>
-        <div class="season-content"><strong>Familias con niños buscan planes de viaje.</strong> Tono cálido, familiar, accesible. Microbuses y vehículos grandes son el producto estrella en esta temporada.<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Microbuses: "Que quepan todos"</li>
-    <li>Conductor adicional gratis — turnos en el camino</li>
-    <li>Flexibilidad: modificá tu reserva en cualquier momento</li>
-    <li>Pura Vida: café y guía incluidos</li></ul></div>
-        <div class="ctas-row"><span class="cta-chip">Planear viaje</span><span class="cta-chip">Ver flota familiar</span><span class="cta-chip">Cotizar</span></div>
-      </div>
-    </div><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#F59E0B"></div>
-        <div class="season-info">
-          <div class="season-name">Feriados Largos y Puentes</div>
-          <div class="season-dates">11 Abr · 1 May · 15 Sep · otros</div>
-        </div>
-        <div class="s-badge s-med">Temporada Media</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#FeriadoLargo</span><span class="stag">#PuenteTico</span><span class="stag">#SeFinDeEscapar</span></div>
-        <div class="season-content"><strong>Ventanas cortas con alta intención de viaje de último momento.</strong> Menor competencia que Semana Santa pero urgencia real. El creativo debe comunicar disponibilidad y rapidez del proceso.<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Urgencia + disponibilidad inmediata</li>
-    <li>Entrega a domicilio — salís rápido desde tu casa</li>
-    <li>WhatsApp: reservá en minutos</li>
-    <li>Upgrade si hay disponibilidad</li></ul></div>
-        <div class="ctas-row"><span class="cta-chip">Reservar hoy</span><span class="cta-chip">Disponibilidad limitada</span><span class="cta-chip">WhatsApp ya</span></div>
-      </div>
-    </div><div class="season-row" onclick="toggleSeason(this)">
-      <div class="season-header">
-        <div class="season-dot" style="background:#555"></div>
-        <div class="season-info">
-          <div class="season-name">Temporada Baja</div>
-          <div class="season-dates">Mayo–Junio · Agosto–Septiembre</div>
-        </div>
-        <div class="s-badge s-low">Temporada Baja</div>
-      </div>
-      <div class="season-body">
-        <div class="stags"><span class="stag">#TemporadaBaja</span><span class="stag">#OfertaEspecial</span></div>
-        <div class="season-content"><strong>Momento para cultivar marca y capturar demanda latente.</strong> Menos competencia en pauta significa menor CPL — buena oportunidad para construir base de datos y retargeting.<br><br>
-    <strong>Ángulos de mensaje:</strong><ul>
-    <li>Descuentos especiales para reactivar interés</li>
-    <li>Contenido educativo: "¿Sabías que podés devolver en otra oficina?"</li>
-    <li>Registro en el sitio web: hasta 20% de descuento permanente</li>
-    <li>Construir base: retargeting y lookalikes para picos futuros</li></ul></div>
-        <div class="ctas-row"><span class="cta-chip">Registrarse</span><span class="cta-chip">Ver descuento</span><span class="cta-chip">Conocer beneficios</span></div>
-      </div>
-    </div></div>
+  <div id="timeline-container"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -668,130 +522,10 @@ select option{background:var(--surface2);}
 <div id="keywords-panel" class="panel">
   <div class="section-head">
     <div class="eyebrow">Rent a Car · Costa Rica</div>
-    <div class="section-title">Keywords &amp; Categoría</div>
+    <div class="section-title">Keywords & Categoría</div>
     <div class="section-sub">Términos de búsqueda por intención para orientar copies, CTAs y targeting en SEM y redes.</div>
   </div>
-  <div id="kw-container"><div class="kw-section-title">🔍 Alta intención · Costa Rica</div>
-    <div class="grid-3">
-      <div class="kw-card">
-        <div class="kw-main">alquilar carro Costa Rica</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">rent a car aeropuerto Juan Santamaría</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquiler de carros baratos Costa Rica</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">renta de vehículos San José</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquiler pickup Costa Rica</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquiler microbús Costa Rica</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-l">Nicho</span>
-      </div>
-    </div><div class="kw-section-title">✈️ Segmento Florida</div>
-    <div class="grid-3">
-      <div class="kw-card">
-        <div class="kw-main">rent a car Florida ticos</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquilar carro Miami desde Costa Rica</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">one way car rental Florida</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">Economy Rent a Car Florida</div>
-        <div class="kw-intent">Navegacional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquiler carro Orlando</div>
-        <div class="kw-intent">Transaccional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-    </div><div class="kw-section-title">📅 Estacionales / Urgencia</div>
-    <div class="grid-3">
-      <div class="kw-card">
-        <div class="kw-main">alquilar carro Semana Santa</div>
-        <div class="kw-intent">Estacional</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">renta carro vacaciones escolares</div>
-        <div class="kw-intent">Estacional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">alquiler vehículo diciembre Costa Rica</div>
-        <div class="kw-intent">Estacional</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">carro alquilado feriado Costa Rica</div>
-        <div class="kw-intent">Estacional</div>
-        <span class="vol-tag vol-l">Nicho</span>
-      </div>
-    </div><div class="kw-section-title">💬 Branding / Redes Sociales</div>
-    <div class="grid-3">
-      <div class="kw-card">
-        <div class="kw-main">#ElRentaCarDeLosticos</div>
-        <div class="kw-intent">Branding</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">#EconomyRentaCar</div>
-        <div class="kw-intent">Branding</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">el rent a car de los ticos</div>
-        <div class="kw-intent">Branding</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-    </div><div class="kw-section-title">🆚 Comparativo / Decisión</div>
-    <div class="grid-3">
-      <div class="kw-card">
-        <div class="kw-main">mejor rent a car Costa Rica</div>
-        <div class="kw-intent">Comparativo</div>
-        <span class="vol-tag vol-h">Alto volumen</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">rent a car confiable aeropuerto CR</div>
-        <div class="kw-intent">Comparativo</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">empresa alquiler 100% costarricense</div>
-        <div class="kw-intent">Comparativo</div>
-        <span class="vol-tag vol-l">Nicho</span>
-      </div>
-      <div class="kw-card">
-        <div class="kw-main">rent a car sin tarjeta de crédito CR</div>
-        <div class="kw-intent">Comparativo</div>
-        <span class="vol-tag vol-m">Medio</span>
-      </div>
-    </div></div>
+  <div id="kw-container"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -803,35 +537,7 @@ select option{background:var(--surface2);}
     <div class="section-title">Insights Accionables</div>
     <div class="section-sub">Verdades sobre el consumidor tico y el mercado rent a car para construir mensajes de mayor impacto.</div>
   </div>
-  <div id="insights-container"><div class="insight-card">
-      <div class="insight-type">Comportamiento de compra</div>
-      <div class="insight-text">El tico compara antes de reservar un rent a car. Economy tiene diferenciadores tangibles que otros no pueden igualar: marca propia, beneficios exclusivos en Florida, trato tico.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> En copies de consideración: mostrar la diferencia explícitamente sin mencionar competidores. "Otros te cobran extra. En Economy, no."</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight de servicio</div>
-      <div class="insight-text">La fricción más grande en el alquiler de carros es el proceso en mostrador: esperar, firmar papeles, cargos inesperados. Economy tiene el pre-registro como solución directa.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Ángulo: "Llegás y tu carro ya te está esperando. Sí, así de fácil." → CTA: Pre-registrarse.</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight Florida</div>
-      <div class="insight-text">Miles de costarricenses viajan a Florida cada año. Es uno de los destinos #1 de la diáspora tica. Economy tiene beneficios exclusivos ahí — segmento poco explotado en pauta digital.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Campaña específica "Economy en Florida" con creatividades en español para la comunidad tica. Los 3 beneficios juntos son el copy.</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight emocional</div>
-      <div class="insight-text">El eslogan "El Rent a Car de los Ticos" no es solo posicionamiento — es permiso de compra. Marca 100% tica con 40 años: el consumidor confía más que con una franquicia extranjera.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> "Casi 40 años llevando ticos por el mundo." No necesita descuento — vende por orgullo.</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight de precio</div>
-      <div class="insight-text">El consumidor busca "barato" pero compra por confianza y conveniencia. Comunicar precio bajo atrae leads de baja calidad. Comunicar valor atrae compradores.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> Cambiar el ángulo: de "¡Precios bajos!" a "Tu viaje sin sorpresas. Conductor adicional gratis, upgrade incluido."</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight de urgencia</div>
-      <div class="insight-text">La escasez en rent a car es real en temporada alta: Semana Santa y diciembre se agotan. Esta urgencia no se fabrica — se comunica y se respalda con datos.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> "¡Quedan pocos días para Semana Santa! La flota se agota rápido — asegurá el tuyo." Funciona porque es verdad.</div>
-    </div><div class="insight-card">
-      <div class="insight-type">Insight digital</div>
-      <div class="insight-text">WhatsApp es el canal de comunicación preferido en Costa Rica para empresas. Reducir la fricción del proceso de cotización a un mensaje de WhatsApp multiplica las conversiones.</div>
-      <div class="insight-use">💡 <strong>Cómo usarlo:</strong> CTA principal en todo material: botón de WhatsApp directo. Evitar formularios largos como primer paso.</div>
-    </div></div>
+  <div id="insights-container"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -843,57 +549,7 @@ select option{background:var(--surface2);}
     <div class="section-title">Benchmarks de Copy</div>
     <div class="section-sub">Copies de referencia que funcionan en la categoría rent a car y movilidad — con el análisis de <em>por qué</em> convierten. Usalos como estándar mínimo, no como techo.</div>
   </div>
-  <div id="benchmarks-container"><div class="bench-card">
-      <div class="bench-header">
-        <div class="bench-score">A+</div>
-        <div class="bench-meta">
-          <div class="bench-title">Facebook Feed · Urgencia estacional</div>
-          <div class="bench-type">fb_ig_feed</div>
-        </div>
-      </div>
-      <div class="bench-copy">"¿Ya tenés tu carro para Semana Santa? 🌴 Los últimos años se agotan rápido. Asegurá el tuyo hoy con Economy — te lo entregamos en el aeropuerto o en tu hotel.<br><br>✅ Modificación de reserva gratis<br>✅ Guía del país incluida<br><br>→ Reservar ahora por WhatsApp"</div>
-      <div class="bench-why"><strong>¿Por qué funciona?</strong> Empieza con una pregunta que activa la duda en el lector. La urgencia ("se agotan rápido") es creíble porque es verdadera. Los bullets son beneficios, no atributos. El CTA es específico y tiene un canal claro.</div>
-    </div><div class="bench-card">
-      <div class="bench-header">
-        <div class="bench-score">A</div>
-        <div class="bench-meta">
-          <div class="bench-title">Google Search · Alta intención</div>
-          <div class="bench-type">google_search</div>
-        </div>
-      </div>
-      <div class="bench-copy">"Economy Rent a Car CR | Conductor Adicional Gratis | Reservá en 2 min por WhatsApp"</div>
-      <div class="bench-why"><strong>¿Por qué funciona?</strong> Para Search, el headline es todo. Menciona la marca (confianza), un beneficio gancho (conductor gratis), y elimina la fricción de proceso (2 min, WhatsApp). 87 caracteres — dentro del límite.</div>
-    </div><div class="bench-card">
-      <div class="bench-header">
-        <div class="bench-score">A</div>
-        <div class="bench-meta">
-          <div class="bench-title">Stories / Reels · Awareness Florida</div>
-          <div class="bench-type">stories_reels</div>
-        </div>
-      </div>
-      <div class="bench-copy">"¿Vas a Florida? En Economy tenés: conductor adicional gratis + one-way gratis + upgrade gratis. Solo por ser tico. 🇨🇷<br><br>→ Deslizá para cotizar"</div>
-      <div class="bench-why"><strong>¿Por qué funciona?</strong> Para stories el copy va arriba, corto, con gancho directo. Listar los 3 beneficios de corrido es más poderoso que describir uno solo. "Solo por ser tico" activa el orgullo de identidad.</div>
-    </div><div class="bench-card">
-      <div class="bench-header">
-        <div class="bench-score">B+</div>
-        <div class="bench-meta">
-          <div class="bench-title">Facebook Feed · Marca / Pura Vida</div>
-          <div class="bench-type">fb_ig_feed</div>
-        </div>
-      </div>
-      <div class="bench-copy">"Casi 40 años llevando ticos por Costa Rica y el mundo. Porque aquí no solo alquilás un carro — te recibimos con café, te damos la guía del país y te acompañamos en cada kilómetro.<br><br>Economy. El Rent a Car de los Ticos. 🇨🇷<br><br>→ Conocé nuestras sucursales"</div>
-      <div class="bench-why"><strong>¿Por qué funciona?</strong> Anuncio de marca sin descuento — vende por identidad. El "no solo alquilás un carro" contrasta con la expectativa y abre curiosidad. El CTA lleva a una acción de bajo compromiso (ver sucursales), correcto para awareness.</div>
-    </div><div class="bench-card">
-      <div class="bench-header">
-        <div class="bench-score">B+</div>
-        <div class="bench-meta">
-          <div class="bench-title">WhatsApp Broadcast · Temporada baja</div>
-          <div class="bench-type">whatsapp</div>
-        </div>
-      </div>
-      <div class="bench-copy">"Hola [nombre] 👋 Sabemos que aún no es Semana Santa, pero los mejores precios de Economy están disponibles ahora. Reservá hoy y asegurá tu carro con descuento.<br><br>¿Cuándo vas a salir? Respondé este mensaje y te cotizamos."</div>
-      <div class="bench-why"><strong>¿Por qué funciona?</strong> El tono conversacional es correcto para WhatsApp — no es un anuncio, es un mensaje. La pregunta al final activa la respuesta (y el lead). "Los mejores precios están ahora" es urgencia sin mentir.</div>
-    </div></div>
+  <div id="benchmarks-container"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -926,25 +582,25 @@ select option{background:var(--surface2);}
       </div>
       <div class="form-group">
         <div class="form-label">Temporada</div>
-        <div class="badge-row" id="season-sel-row"><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Semana Santa</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Florida</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Turismo alto</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Verano Escolar</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Feriado</span><span class="sel-badge" onclick="toggleBadge(this,&#39;season&#39;)">Sin temporada</span></div>
+        <div class="badge-row" id="season-sel-row"></div>
       </div>
       <div class="form-group">
         <div class="form-label">Pilar de propuesta de valor</div>
         <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">📍 Cercanía</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">🎁 Beneficios</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">☕ Pura Vida</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">⚡ Velocidad</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;pillar&#39;)">💰 Oferta</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'pillar')">📍 Cercanía</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'pillar')">🎁 Beneficios</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'pillar')">☕ Pura Vida</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'pillar')">⚡ Velocidad</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'pillar')">💰 Oferta</span>
         </div>
       </div>
       <div class="form-group">
         <div class="form-label">Audiencia</div>
         <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🇨🇷 Tico local</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">✈️ Tico exterior</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🌍 Turista</span>
-          <span class="sel-badge" onclick="toggleBadge(this,&#39;aud&#39;)">🏢 Corporativo</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'aud')">🇨🇷 Tico local</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'aud')">✈️ Tico exterior</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'aud')">🌍 Turista</span>
+          <span class="sel-badge" onclick="toggleBadge(this,'aud')">🏢 Corporativo</span>
         </div>
       </div>
       <button class="eval-btn" id="eval-btn" onclick="runEval()">Evaluar copy</button>
@@ -974,18 +630,15 @@ select option{background:var(--surface2);}
   <div class="bank-toolbar">
     <div class="bank-search"><input type="text" id="bank-search" placeholder="Buscar en el banco..." oninput="renderBank()"></div>
     <div class="bank-filter-row" id="bank-filter-row">
-      <span class="sel-badge on" onclick="bankFilter(this,&#39;all&#39;)">Todos</span>
-      <span class="sel-badge" onclick="bankFilter(this,&#39;cercanía&#39;)">📍 Cercanía</span>
-      <span class="sel-badge" onclick="bankFilter(this,&#39;beneficios&#39;)">🎁 Beneficios</span>
-      <span class="sel-badge" onclick="bankFilter(this,&#39;pura vida&#39;)">☕ Pura Vida</span>
-      <span class="sel-badge" onclick="bankFilter(this,&#39;velocidad&#39;)">⚡ Velocidad</span>
-      <span class="sel-badge" onclick="bankFilter(this,&#39;oferta&#39;)">💰 Oferta</span>
+      <span class="sel-badge on" onclick="bankFilter(this,'all')">Todos</span>
+      <span class="sel-badge" onclick="bankFilter(this,'cercanía')">📍 Cercanía</span>
+      <span class="sel-badge" onclick="bankFilter(this,'beneficios')">🎁 Beneficios</span>
+      <span class="sel-badge" onclick="bankFilter(this,'pura vida')">☕ Pura Vida</span>
+      <span class="sel-badge" onclick="bankFilter(this,'velocidad')">⚡ Velocidad</span>
+      <span class="sel-badge" onclick="bankFilter(this,'oferta')">💰 Oferta</span>
     </div>
   </div>
-  <div id="bank-grid" class="bank-grid"><div class="bank-empty" style="grid-column:1/-1">
-      <span class="bank-empty-icon">🗄</span>
-      El banco está vacío. Evaluá copies con score ≥60 y guardálos aquí para tener referencia.
-    </div></div>
+  <div id="bank-grid" class="bank-grid"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -1612,6 +1265,5 @@ renderBank();
 updateBriefProgress(1);
 if(!getApiKey())promptApiKey();
 </script>
-
-
-</body></html>
+</body>
+</html>
