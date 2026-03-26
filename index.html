@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0070)file:///Users/andrekelso/Downloads/economy-creative-platform-v2_5.html -->
+<!-- saved from url=(0070)file:///Users/andrekelso/Downloads/economy-creative-platform-v2_6.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1596,7 +1596,7 @@ function promptApiKey(){
 }
 function saveApiKey(){
   const k=document.getElementById('key-input').value.trim();
-  if(!k.startsWith('sk-ant-')){alert('Key inválida. Debe comenzar con sk-ant-');return;}
+  if(!k){alert('Ingresá la API Key');return;}
   localStorage.setItem('econ_api_key',k);
   document.getElementById('key-overlay').remove();
 }
@@ -1611,7 +1611,7 @@ buildSeasonBadges();
 renderBank();
 updateBriefProgress(1);
 if(!getApiKey())promptApiKey();
-</script><div id="key-overlay" style="position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.88); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;"><div style="background:#1a1a1a;border:1px solid rgba(232,0,30,0.4);border-radius:14px;padding:36px;max-width:480px;width:100%;"><div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E8001E;margin-bottom:10px;">Configuración</div><div style="font-size:20px;font-weight:800;margin-bottom:8px;color:#F5F5F5;">API Key requerida</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6;">Ingresá tu Anthropic API Key para activar el Evaluador. Se guarda solo en este navegador.</div><input type="password" id="key-input" placeholder="sk-ant-api03-..." style="width:100%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;color:#fff;font-family:monospace;font-size:12px;outline:none;margin-bottom:16px;box-sizing:border-box;"><button onclick="saveApiKey()" style="width:100%;background:#E8001E;color:#fff;border:none;border-radius:8px;padding:13px;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Guardar y activar</button><div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:12px;text-align:center;">console.anthropic.com → API Keys → Create Key</div></div></div>
+</script>
 
 
 </body></html>
