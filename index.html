@@ -651,67 +651,104 @@ select option{background:var(--surface2);}
   <div class="section-head">
     <div class="eyebrow">Generador IA · Economy Rent a Car</div>
     <div class="section-title">Generador de Copy</div>
-    <div class="section-sub">Configurá el brief, elegí el tono y recibí 3 opciones de copy listas para usar o adaptar.</div>
+    <div class="section-sub">Generá copies desde cero o corregí uno existente. Recibís 3 opciones listas para usar o adaptar.</div>
   </div>
+
+  <!-- MODE TOGGLE -->
+  <div style="display:flex;gap:10px;margin-bottom:28px;">
+    <button id="mode-nuevo" onclick="setGenMode('nuevo')" class="eval-btn" style="flex:1;padding:12px;font-size:11px;">✍️ Generar desde brief</button>
+    <button id="mode-corregir" onclick="setGenMode('corregir')" class="eval-btn" style="flex:1;padding:12px;font-size:11px;background:var(--surface3);border:1px solid var(--border);">🔧 Corregir copy existente</button>
+  </div>
+
   <div class="eval-layout">
     <div class="eval-form-card">
-      <div class="form-group">
-        <div class="form-label">Audiencia</div>
-        <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🇨🇷 Tico local</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gaud')">✈️ Tico en el exterior</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🌍 Turista internacional</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🏢 Corporativo</span>
+
+      <!-- MODO NUEVO -->
+      <div id="form-nuevo">
+        <div class="form-group">
+          <div class="form-label">Audiencia</div>
+          <div class="badge-row">
+            <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🇨🇷 Tico local</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gaud')">✈️ Tico en el exterior</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🌍 Turista internacional</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gaud')">🏢 Corporativo</span>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="form-label">Temporada</div>
-        <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🌴 Semana Santa</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🌊 Florida</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">⭐ Turismo alto</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🎒 Verano Escolar</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🗓 Feriado</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gseason')">📌 Sin temporada</span>
+        <div class="form-group">
+          <div class="form-label">Temporada</div>
+          <div class="badge-row">
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🌴 Semana Santa</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🌊 Florida</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">⭐ Turismo alto</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🎒 Verano Escolar</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">🗓 Feriado</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gseason')">📌 Sin temporada</span>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="form-label">Pilar de propuesta de valor</div>
-        <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">📍 Cercanía</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">🎁 Beneficios</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">☕ Pura Vida</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">⚡ Velocidad</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">💰 Oferta/Urgencia</span>
+        <div class="form-group">
+          <div class="form-label">Pilar de propuesta de valor</div>
+          <div class="badge-row">
+            <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">📍 Cercanía</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">🎁 Beneficios</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">☕ Pura Vida</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">⚡ Velocidad</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gpillar')">💰 Oferta/Urgencia</span>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="form-label">Plataforma / Formato</div>
-        <select id="gen-fmt">
-          <option value="">— Seleccionar —</option>
-          <option value="Facebook / Instagram Feed">Facebook / Instagram Feed</option>
-          <option value="Stories / Reels">Stories / Reels</option>
-          <option value="Google Search Ads">Google Search Ads</option>
-          <option value="Google Display">Google Display</option>
-          <option value="WhatsApp Broadcast">WhatsApp Broadcast</option>
-          <option value="Email / Newsletter">Email / Newsletter</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <div class="form-label">Tono del mensaje</div>
-        <div class="badge-row">
-          <span class="sel-badge" onclick="toggleBadge(this,'gtono')">🔥 Urgente</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gtono')">❤️ Emocional</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gtono')">💡 Informativo</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gtono')">😎 Casual / Pura Vida</span>
-          <span class="sel-badge" onclick="toggleBadge(this,'gtono')">💼 Profesional</span>
+        <div class="form-group">
+          <div class="form-label">Plataforma / Formato</div>
+          <select id="gen-fmt">
+            <option value="">— Seleccionar —</option>
+            <option value="Facebook / Instagram Feed">Facebook / Instagram Feed</option>
+            <option value="Stories / Reels">Stories / Reels</option>
+            <option value="Google Search Ads">Google Search Ads</option>
+            <option value="Google Display">Google Display</option>
+            <option value="WhatsApp Broadcast">WhatsApp Broadcast</option>
+            <option value="Email / Newsletter">Email / Newsletter</option>
+          </select>
         </div>
+        <div class="form-group">
+          <div class="form-label">Tono del mensaje</div>
+          <div class="badge-row">
+            <span class="sel-badge" onclick="toggleBadge(this,'gtono')">🔥 Urgente</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gtono')">❤️ Emocional</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gtono')">💡 Informativo</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gtono')">😎 Casual / Pura Vida</span>
+            <span class="sel-badge" onclick="toggleBadge(this,'gtono')">💼 Profesional</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">Contexto adicional (opcional)</div>
+          <textarea id="gen-context" placeholder="Ej: hay una promoción de conductor adicional gratis hasta el 31 de enero, enfocado en familias que viajan a Guanacaste..." style="min-height:80px;"></textarea>
+        </div>
+        <button class="eval-btn" id="gen-btn" onclick="runGenerator()">Generar opciones de copy</button>
       </div>
-      <div class="form-group">
-        <div class="form-label">Contexto adicional (opcional)</div>
-        <textarea id="gen-context" placeholder="Ej: hay una promoción de conductor adicional gratis hasta el 31 de enero, enfocado en familias que viajan a Guanacaste..." style="min-height:80px;"></textarea>
+
+      <!-- MODO CORREGIR -->
+      <div id="form-corregir" style="display:none;">
+        <div class="form-group">
+          <div class="form-label">Copy existente a corregir</div>
+          <div class="char-meta" style="margin-bottom:6px;">Pegá el copy completo — indicá qué es Headline, CTA y Caption si aplica</div>
+          <textarea id="fix-copy" placeholder="Headline: Aterrizás y ya tenés carro&#10;CTA: Reservá ahora y viví Miami a tu manera.&#10;Caption: Bajarte del avión y ya tener tu carro listo… así debería ser siempre 😎&#10;Además, siendo tico tenés beneficios especiales en Florida." style="min-height:150px;"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="form-label">¿Qué hay que corregir o mejorar?</div>
+          <textarea id="fix-problema" placeholder="Ej: el cliente indica que Economy no entrega carros directo en el aeropuerto, hay que corregir ese mensaje sin perder el impacto del headline. Mantener el tono y estructura actual." style="min-height:90px;"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="form-label">Plataforma (opcional)</div>
+          <select id="fix-fmt">
+            <option value="">— Seleccionar —</option>
+            <option value="Facebook / Instagram Feed">Facebook / Instagram Feed</option>
+            <option value="Stories / Reels">Stories / Reels</option>
+            <option value="Google Search Ads">Google Search Ads</option>
+            <option value="WhatsApp Broadcast">WhatsApp Broadcast</option>
+            <option value="Email / Newsletter">Email / Newsletter</option>
+          </select>
+        </div>
+        <button class="eval-btn" id="fix-btn" onclick="runFixer()">Corregir y mejorar copy</button>
       </div>
-      <button class="eval-btn" id="gen-btn" onclick="runGenerator()">Generar opciones de copy</button>
+
     </div>
 
     <div class="results-sticky">
@@ -719,7 +756,7 @@ select option{background:var(--surface2);}
         <div class="score-card">
           <div class="placeholder">
             <span class="placeholder-icon">✍️</span>
-            Configurá el brief y generá tus opciones de copy.
+            Elegí un modo y generá tu copy.
           </div>
         </div>
       </div>
@@ -1420,6 +1457,113 @@ function copyGenOption(btn, encoded) {
     btn.textContent = '¡Copiado!';
     setTimeout(()=>btn.textContent=orig, 2000);
   });
+}
+
+function setGenMode(mode) {
+  document.getElementById('form-nuevo').style.display = mode==='nuevo' ? 'block' : 'none';
+  document.getElementById('form-corregir').style.display = mode==='corregir' ? 'block' : 'none';
+  document.getElementById('mode-nuevo').style.background = mode==='nuevo' ? 'var(--red)' : 'var(--surface3)';
+  document.getElementById('mode-nuevo').style.border = mode==='nuevo' ? 'none' : '1px solid var(--border)';
+  document.getElementById('mode-corregir').style.background = mode==='corregir' ? 'var(--red)' : 'var(--surface3)';
+  document.getElementById('mode-corregir').style.border = mode==='corregir' ? 'none' : '1px solid var(--border)';
+  document.getElementById('gen-results').innerHTML = '<div class="score-card"><div class="placeholder"><span class="placeholder-icon">✍️</span>Elegí un modo y generá tu copy.</div></div>';
+}
+
+async function runFixer() {
+  const fixCopy = document.getElementById('fix-copy').value.trim();
+  const fixProb = document.getElementById('fix-problema').value.trim();
+  if(!fixCopy) { alert('Pegá el copy a corregir.'); return; }
+  if(!fixProb) { alert('Describí qué hay que corregir.'); return; }
+  const fmt = document.getElementById('fix-fmt').value;
+
+  const btn = document.getElementById('fix-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Corrigiendo...';
+  document.getElementById('gen-results').innerHTML = '<div class="score-card"><div class="placeholder"><span class="placeholder-icon" style="opacity:1">⏳</span>Analizando y corrigiendo el copy...</div></div>';
+
+  const sys = `Sos un experto copywriter para Economy Rent a Car de Costa Rica — "El Rent a Car de los Ticos".
+
+Propuesta de valor de Economy:
+1. CERCANÍA: Puntos en todo CR, entrega/devolución a domicilio (hasta 10km de una oficina), recogida en aeropuerto u hotel — pero NO entregan el carro directamente en la puerta del aeropuerto sin reserva previa.
+2. BENEFICIOS EXCLUSIVOS: Florida (conductor adicional gratis, one-way gratis, upgrade gratis, siempre hay descuento). Mundo: 10% para ticos, 20% con registro web.
+3. SERVICIO PURA VIDA: Café de bienvenida, guía del país, reservación flexible, marca 100% tica ~40 años.
+4. VELOCIDAD: Pre-registro/pre check-in, WhatsApp, sin filas.
+5. OFERTA/URGENCIA: Descuentos, upgrades, horas extras gratis, conductores gratis, drop-offs flexibles.
+
+Tu tarea es corregir o mejorar un copy existente según las instrucciones del creativo. Debés:
+- Mantener el estilo, tono y estructura del copy original tanto como sea posible
+- Corregir solo lo que se indica — no reescribir todo si no es necesario
+- Identificar claramente qué es Headline, Caption y CTA en cada versión
+- Generar 3 versiones con distintos enfoques para resolver el problema
+
+Respondé ÚNICAMENTE en JSON válido sin backticks:
+{
+  "analisis": "<una línea explicando el problema detectado en el copy original>",
+  "opciones": [
+    {
+      "numero": 1,
+      "enfoque": "<nombre del enfoque, ej: Corrección mínima>",
+      "headline": "...",
+      "caption": "...",
+      "cta": "...",
+      "cambios": "<qué se cambió y por qué>"
+    },
+    { "numero": 2, ... },
+    { "numero": 3, ... }
+  ]
+}`;
+
+  const msg = `Copy original:
+${fixCopy}
+
+Problema a corregir: ${fixProb}${fmt ? '
+Plataforma: '+fmt : ''}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true','x-api-key':getApiKey(),'anthropic-version':'2023-06-01'},
+      body: JSON.stringify({ model:'claude-haiku-4-5', max_tokens:1500, messages:[{role:'user',content:sys+'\n\n'+msg}] })
+    });
+    const data = await res.json();
+    const raw = data.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+    const r = JSON.parse(raw);
+    renderFixerResults(r);
+  } catch(e) {
+    document.getElementById('gen-results').innerHTML = '<div class="score-card"><div class="placeholder"><span class="placeholder-icon">⚠️</span>Error al corregir. Intentá de nuevo.</div></div>';
+  }
+  btn.disabled = false;
+  btn.innerHTML = 'Corregir y mejorar copy';
+}
+
+function renderFixerResults(r) {
+  const colors = ['var(--red)','var(--amber)','var(--green)'];
+  let html = '';
+  if(r.analisis) {
+    html += `<div class="insight-card" style="margin-bottom:14px;">
+      <div class="insight-type">Diagnóstico</div>
+      <div class="insight-text">${r.analisis}</div>
+    </div>`;
+  }
+  html += r.opciones.map((op,i) => `
+    <div class="bench-card" style="margin-bottom:14px;">
+      <div class="bench-header">
+        <div class="bench-score" style="background:${colors[i]};font-size:16px;">${op.numero}</div>
+        <div class="bench-meta">
+          <div class="bench-title">${op.enfoque}</div>
+        </div>
+      </div>
+      <div class="bench-copy">
+        <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">HEADLINE</span><br><strong style="color:var(--text);">${op.headline}</strong></div>
+        <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CAPTION</span><br><span style="color:rgba(255,255,255,0.75);">${op.caption.replace(/
+/g,'<br>')}</span></div>
+        <div><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CTA</span><br><span style="color:var(--red);font-weight:700;">→ ${op.cta}</span></div>
+      </div>
+      <div class="bench-why" style="margin-bottom:10px;">🔧 ${op.cambios}</div>
+      <button class="copy-btn" onclick="copyGenOption(this, '${encodeURIComponent('HEADLINE: '+op.headline+'\n\nCAPTION: '+op.caption+'\n\nCTA: '+op.cta)}')">Copiar opción ${op.numero}</button>
+    </div>
+  `).join('');
+  document.getElementById('gen-results').innerHTML = html;
 }
 
 // ─── API KEY ──────────────────────────────────────────────
