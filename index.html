@@ -1513,11 +1513,8 @@ Respondé ÚNICAMENTE en JSON válido sin backticks:
   ]
 }`;
 
-  const msg = `Copy original:
-${fixCopy}
-
-Problema a corregir: ${fixProb}${fmt ? '
-Plataforma: '+fmt : ''}`;
+  const platLine = fmt ? '\nPlataforma: '+fmt : '';
+  const msg = 'Copy original:\n'+fixCopy+'\n\nProblema a corregir: '+fixProb+platLine;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1555,12 +1552,11 @@ function renderFixerResults(r) {
       </div>
       <div class="bench-copy">
         <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">HEADLINE</span><br><strong style="color:var(--text);">${op.headline}</strong></div>
-        <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CAPTION</span><br><span style="color:rgba(255,255,255,0.75);">${op.caption.replace(/
-/g,'<br>')}</span></div>
+        <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CAPTION</span><br><span style="color:rgba(255,255,255,0.75);">${op.caption.replace(/\n/g,'<br>')}</span></div>
         <div><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CTA</span><br><span style="color:var(--red);font-weight:700;">→ ${op.cta}</span></div>
       </div>
       <div class="bench-why" style="margin-bottom:10px;">🔧 ${op.cambios}</div>
-      <button class="copy-btn" onclick="copyGenOption(this, '${encodeURIComponent('HEADLINE: '+op.headline+'\n\nCAPTION: '+op.caption+'\n\nCTA: '+op.cta)}')">Copiar opción ${op.numero}</button>
+      <button class="copy-btn" onclick="copyGenOption(this, encodeURIComponent('HEADLINE: '+op.headline+'\n\nCAPTION: '+op.caption+'\n\nCTA: '+op.cta))">Copiar opción ${op.numero}</button>
     </div>
   `).join('');
   document.getElementById('gen-results').innerHTML = html;
